@@ -97,7 +97,8 @@
       {"name":"date","type":"string"},
       {"name":"base","type":"string"},
       {"name":"quote","type":"string"},
-      {"name":"rate","type":"string"}
+      {"name":"rate","type":"string"},
+      {"name":"paire_devise","type":"string"}
     ],
     "userModified": true
   },
