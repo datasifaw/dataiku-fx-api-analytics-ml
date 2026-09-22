@@ -1,88 +1,88 @@
-# Projet FX Analytics avec Dataiku
+# Projet FX Analytics — MAD / EUR / USD avec Dataiku
 
-## Frankfurter API, Analytics, Machine Learning et automatisation
+## Frankfurter API • Analytics • Machine Learning • Automatisation
 
 ## Contexte
 
-L'objectif de ce projet est de construire un pipeline Dataiku complet
-à partir de données de taux de change récupérées depuis une API publique.
+Ce projet consiste à construire un pipeline Dataiku de bout en bout
+à partir de données de taux de change récupérées depuis la Frankfurter API.
+
+L'analyse est principalement centrée sur trois devises :
+
+- MAD — Dirham marocain
+- EUR — Euro
+- USD — Dollar américain
+
+L'objectif est d'étudier notamment l'évolution du dirham marocain
+face à l'euro et au dollar, puis d'exploiter ces données pour réaliser
+des analyses, des visualisations et des modèles de Machine Learning.
+
+## Objectifs du projet
 
 Le projet couvre :
 
-- ingestion d'une API REST
-- traitement de données JSON
-- préparation et nettoyage
-- analyse de séries temporelles
-- calcul de KPI
+- ingestion de données depuis une API REST
+- manipulation de données JSON
+- collecte de données historiques FX
+- préparation et nettoyage dans Dataiku
+- création de variables temporelles
+- calcul de KPI financiers
 - création d'un dashboard
-- Machine Learning
 - détection d'anomalies
-- prévision de taux de change
+- prévision de séries temporelles
+- scoring
 - automatisation avec Dataiku Scenarios
+- versionnement du projet avec Git / GitHub
 
 
+## Paires de devises étudiées
 
-## Devises étudiées
+### EUR / MAD
 
-Le projet pourra notamment analyser :
+Analyse de l'évolution de l'euro par rapport au dirham marocain.
 
-- EUR / USD
-- EUR / GBP
-- EUR / INR
-- EUR / JPY
+Exemple :
 
-## Analytics
+1 EUR → MAD
 
-Les indicateurs étudiés incluront :
+### USD / MAD
 
-- taux actuel
-- variation quotidienne
-- variation en pourcentage
-- minimum
-- maximum
-- moyenne
-- moyenne mobile
-- volatilité
-- évolution historique
+Analyse de l'évolution du dollar américain par rapport au dirham marocain.
 
-## Machine Learning
+Exemple :
 
-### Détection d'anomalies
+1 USD → MAD
 
-Identifier les journées présentant des variations inhabituelles
-des taux de change.
+### EUR / USD
 
-### Forecasting
+Analyse complémentaire permettant de comparer les deux principales
+devises internationales utilisées dans le projet.
 
-Construire un modèle de séries temporelles pour prévoir
-l'évolution future d'un taux de change.
+## Source de données
 
-## Automatisation
+Les taux de change sont récupérés avec la Frankfurter API.
 
-Un Scenario Dataiku permettra d'automatiser :
+Exemples d'appels API :
 
-API
-↓
-Mise à jour des données
-↓
-Préparation
-↓
-Calcul des KPI
-↓
-Machine Learning / Scoring
-↓
-Mise à jour du dashboard
+### EUR vers MAD
 
-## Technologies
 
-- Dataiku
-- Frankfurter API
-- REST API
-- JSON
-- Visual Recipes
-- Python
-- Time Series
-- Machine Learning
-- Forecasting
-- Dataiku Scenarios
-- Dataiku Dashboards
+https://api.frankfurter.dev/v2/rate/eur/mad
+
+{
+  "date": "2026-09-22",
+  "base": "EUR",
+  "quote": "MAD",
+  "rate": 10.9335
+}
+
+USD vers MAD
+https://api.frankfurter.dev/v2/rate/usd/mad
+
+{
+  "date": "2026-09-22",
+  "base": "USD",
+  "quote": "MAD",
+  "rate": 9.5239
+}
+
