@@ -1,6 +1,12 @@
 {
   "mode": "UNION",
   "originColumnName": "original_dataset",
+  "selectedColumns": [
+    "date",
+    "base",
+    "quote",
+    "rate"
+  ],
   "engineParams": {
     "hive": {
       "skipPrerunValidate": false,
@@ -50,9 +56,37 @@
       },
       "originLabel": "fx_eur_mad_historique",
       "index": 0
+    },
+    {
+      "preFilter": {},
+      "originLabel": "fx_usd_mad_historique",
+      "index": 1
     }
   ],
   "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "date",
+            "type": "string"
+          },
+          {
+            "name": "base",
+            "type": "string"
+          },
+          {
+            "name": "quote",
+            "type": "string"
+          },
+          {
+            "name": "rate",
+            "type": "string"
+          }
+        ],
+        "userModified": false
+      }
+    },
     "distinct": false,
     "enabled": false
   },
