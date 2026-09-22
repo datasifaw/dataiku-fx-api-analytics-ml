@@ -20,31 +20,7 @@ Le projet couvre :
 - prévision de taux de change
 - automatisation avec Dataiku Scenarios
 
-## Architecture
 
-Frankfurter API
-↓
-JSON
-↓
-Dataiku
-↓
-Data Preparation
-↓
-Historique FX
-↓
-Features temporelles
-↓
-KPI / Analytics
-↓
-Dashboard
-↓
-Machine Learning
-↙                ↘
-Anomalies        Forecasting
-↓
-Scoring
-↓
-Scenario Dataiku
 
 ## Devises étudiées
 
