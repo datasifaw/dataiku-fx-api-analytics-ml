@@ -1,6 +1,28 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "date"
+      },
+      {
+        "d": true,
+        "name": "base"
+      },
+      {
+        "d": true,
+        "name": "quote"
+      },
+      {
+        "d": true,
+        "name": "rate"
+      },
+      {
+        "d": true,
+        "name": "paire_devise"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -30,8 +52,38 @@
   "explorationFilters": [],
   "columnOrder": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "concat(base, \"/\", quote)",
+        "column": "paire_devise",
+        "errorColumn": ""
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnReorder",
+      "params": {
+        "columns": [
+          "paire_devise"
+        ],
+        "reorderAction": "AT_END",
+        "appliesTo": "SINGLE_COLUMN"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -59,7 +111,13 @@
   },
   "analysisColumnData": {},
   "flagNumericValues": true,
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "date": 252,
+    "paire_devise": 105,
+    "quote": 222,
+    "rate": 162,
+    "base": 232
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
