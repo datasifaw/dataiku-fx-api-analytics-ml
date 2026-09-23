@@ -101,7 +101,8 @@
       {"name":"paire_devise","type":"string"},
       {"name":"moyenne_mobile_7","type":"double"},
       {"name":"rate_precedent","type":"double"},
-      {"name":"variation","type":"double"}
+      {"name":"variation","type":"double"},
+      {"name":"variation_pct","type":"double"}
     ],
     "userModified": true
   },
