@@ -103,7 +103,7 @@
       {"name":"rate_precedent","type":"double"},
       {"name":"variation","type":"double"},
       {"name":"variation_pct","type":"double"},
-      {"name":"variation_pct_stddev","type":"double"}
+      {"name":"volatilite_7","type":"double"}
     ],
     "userModified": true
   },
