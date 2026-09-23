@@ -99,9 +99,9 @@
       {"name":"quote","type":"string"},
       {"name":"rate","type":"double"},
       {"name":"paire_devise","type":"string"},
-      {"name":"rate_avg","type":"double"},
-      {"name":"rate_lag","type":"double"},
-      {"name":"rate_lag_diff","type":"double"}
+      {"name":"moyenne_mobile_7","type":"double"},
+      {"name":"rate_precedent","type":"double"},
+      {"name":"variation","type":"double"}
     ],
     "userModified": true
   },
