@@ -502,6 +502,10 @@
           "totalBarLabel": ""
         },
         "linesZoomOptions": {
+          "displayInterval": [
+            1.577664E12,
+            1.790553599999E12
+          ],
           "displayBrush": true,
           "enabled": true,
           "persisted": true
