@@ -1,6 +1,44 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "date"
+      },
+      {
+        "d": true,
+        "name": "base"
+      },
+      {
+        "d": true,
+        "name": "quote"
+      },
+      {
+        "d": true,
+        "name": "rate"
+      },
+      {
+        "d": true,
+        "name": "paire_devise"
+      },
+      {
+        "d": true,
+        "name": "moyenne_mobile_7"
+      },
+      {
+        "d": true,
+        "name": "rate_precedent"
+      },
+      {
+        "d": true,
+        "name": "variation"
+      },
+      {
+        "d": true,
+        "name": "variation_pct"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -30,8 +68,24 @@
   "explorationFilters": [],
   "columnOrder": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "(variation / rate_precedent) * 100",
+        "column": "variation_pct",
+        "errorColumn": ""
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -59,7 +113,17 @@
   },
   "analysisColumnData": {},
   "flagNumericValues": true,
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "date": 100,
+    "paire_devise": 105,
+    "rate_precedent": 134,
+    "variation_pct": 169,
+    "quote": 100,
+    "moyenne_mobile_7": 162,
+    "rate": 134,
+    "variation": 169,
+    "base": 100
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
