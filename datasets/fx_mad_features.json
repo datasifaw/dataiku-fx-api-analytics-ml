@@ -98,7 +98,10 @@
       {"name":"base","type":"string"},
       {"name":"quote","type":"string"},
       {"name":"rate","type":"double"},
-      {"name":"paire_devise","type":"string"}
+      {"name":"paire_devise","type":"string"},
+      {"name":"rate_avg","type":"double"},
+      {"name":"rate_lag","type":"double"},
+      {"name":"rate_lag_diff","type":"double"}
     ],
     "userModified": true
   },
