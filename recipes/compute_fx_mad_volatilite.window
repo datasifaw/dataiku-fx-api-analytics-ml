@@ -356,5 +356,7 @@
   "rank": false,
   "denseRank": false,
   "rowNumber": false,
-  "outputColumnNameOverrides": {}
+  "outputColumnNameOverrides": {
+    "variation_pct_stddev": "volatilite_7"
+  }
 }
