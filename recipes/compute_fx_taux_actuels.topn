@@ -5,9 +5,22 @@
   },
   "retrievedColumnsSelectionMode": "ALL",
   "firstRows": 1,
-  "keys": [],
+  "keys": [
+    "paire_devise"
+  ],
   "computedColumns": [],
-  "retrievedColumns": [],
+  "retrievedColumns": [
+    "date",
+    "base",
+    "quote",
+    "rate",
+    "paire_devise",
+    "moyenne_mobile_7",
+    "rate_precedent",
+    "variation",
+    "variation_pct",
+    "volatilite_7"
+  ],
   "lastRows": 0,
   "duplicateCount": false,
   "engineParams": {
@@ -53,7 +66,12 @@
   },
   "rank": false,
   "denseRank": false,
-  "orders": [],
+  "orders": [
+    {
+      "column": "date",
+      "desc": true
+    }
+  ],
   "rowNumber": false,
   "outputColumnNameOverrides": {}
 }
