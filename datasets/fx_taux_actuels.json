@@ -93,7 +93,18 @@
     }
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {"name":"date","type":"string"},
+      {"name":"base","type":"string"},
+      {"name":"quote","type":"string"},
+      {"name":"rate","type":"double"},
+      {"name":"paire_devise","type":"string"},
+      {"name":"moyenne_mobile_7","type":"double"},
+      {"name":"rate_precedent","type":"double"},
+      {"name":"variation","type":"double"},
+      {"name":"variation_pct","type":"double"},
+      {"name":"volatilite_7","type":"double"}
+    ],
     "userModified": true
   },
   "typeSystemVersion": "V2",
