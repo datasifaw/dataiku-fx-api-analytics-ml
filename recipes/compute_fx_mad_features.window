@@ -248,5 +248,9 @@
   "rank": false,
   "denseRank": false,
   "rowNumber": false,
-  "outputColumnNameOverrides": {}
+  "outputColumnNameOverrides": {
+    "rate_lag_diff": "variation",
+    "rate_avg": "moyenne_mobile_7",
+    "rate_lag": "rate_precedent"
+  }
 }
