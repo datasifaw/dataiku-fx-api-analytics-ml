@@ -107,6 +107,8 @@
               "label": "Ordonnancement naturel",
               "sortAscending": true
             },
+            "prefix": "",
+            "suffix": "",
             "multiplier": "Auto",
             "hideTrailingZeros": true,
             "digitGrouping": "DEFAULT",
@@ -139,6 +141,8 @@
               "measureIdx": 0,
               "label": "Moyenne de rate, décroissant"
             },
+            "prefix": "",
+            "suffix": "",
             "multiplier": "Auto",
             "hideTrailingZeros": true,
             "digitGrouping": "DEFAULT",
@@ -475,6 +479,7 @@
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
@@ -503,8 +508,8 @@
         },
         "linesZoomOptions": {
           "displayInterval": [
-            1.577664E12,
-            1.790553599999E12
+            1.591291413231E12,
+            1.738388853356E12
           ],
           "displayBrush": true,
           "enabled": true,
