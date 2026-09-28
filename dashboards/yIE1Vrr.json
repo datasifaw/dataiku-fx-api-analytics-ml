@@ -10,7 +10,7 @@
             "box": {
               "top": 0,
               "left": 0,
-              "width": 12,
+              "width": 17,
               "height": 12
             },
             "clickAction": "DO_NOTHING",
@@ -59,10 +59,10 @@
             "id": "8381b3c8-3364-4b28-a094-ef5a3790bdb9",
             "tileType": "INSIGHT",
             "box": {
-              "top": 18,
-              "left": 12,
-              "width": 12,
-              "height": 12
+              "top": 12,
+              "left": 0,
+              "width": 35,
+              "height": 15
             },
             "clickAction": "DO_NOTHING",
             "tileParams": {
@@ -110,9 +110,9 @@
             "id": "5178e688-3751-4cae-a7f1-914a051111c7",
             "tileType": "INSIGHT",
             "box": {
-              "top": 6,
-              "left": 13,
-              "width": 12,
+              "top": 0,
+              "left": 18,
+              "width": 17,
               "height": 12
             },
             "clickAction": "DO_NOTHING",
