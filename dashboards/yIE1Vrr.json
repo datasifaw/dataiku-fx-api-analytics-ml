@@ -8,7 +8,7 @@
             "id": "598fa530-9874-4bf1-a30e-28d4debd13af",
             "tileType": "INSIGHT",
             "box": {
-              "top": 0,
+              "top": 12,
               "left": 0,
               "width": 17,
               "height": 12
@@ -59,7 +59,7 @@
             "id": "8381b3c8-3364-4b28-a094-ef5a3790bdb9",
             "tileType": "INSIGHT",
             "box": {
-              "top": 12,
+              "top": 24,
               "left": 0,
               "width": 35,
               "height": 15
@@ -161,8 +161,8 @@
             "id": "2f09c622-b38c-4ffa-9aa7-c95868f0b2c2",
             "tileType": "INSIGHT",
             "box": {
-              "top": -1,
-              "left": -1,
+              "top": 0,
+              "left": 1,
               "width": 12,
               "height": 12
             },
@@ -196,6 +196,9 @@
               "showTitle": "YES",
               "fontColor": "#000000",
               "fontSize": 13
+            },
+            "grid": {
+              "tiles": []
             },
             "useDashboardSpacing": true,
             "tileSpacing": 8,
@@ -209,8 +212,8 @@
             "id": "f359b159-736c-405c-aaf1-1c70fabf8718",
             "tileType": "INSIGHT",
             "box": {
-              "top": -1,
-              "left": -1,
+              "top": 39,
+              "left": 12,
               "width": 12,
               "height": 12
             },
@@ -244,6 +247,9 @@
               "showTitle": "YES",
               "fontColor": "#000000",
               "fontSize": 13
+            },
+            "grid": {
+              "tiles": []
             },
             "useDashboardSpacing": true,
             "tileSpacing": 8,
