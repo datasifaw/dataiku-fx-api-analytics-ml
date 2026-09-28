@@ -11,7 +11,7 @@
       "titleFontColor": "#444444",
       "titleFontSize": 28,
       "enableCrossFilters": true,
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#FFFFFF",
       "showFilterPanel": true,
       "filtersParams": {
         "panelPosition": "TOP",
