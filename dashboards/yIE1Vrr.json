@@ -1,0 +1,181 @@
+{
+  "pages": [
+    {
+      "id": "sXQGtkK",
+      "grid": {
+        "tiles": []
+      },
+      "show": true,
+      "showTitle": false,
+      "titleAlign": "CENTER",
+      "titleFontColor": "#444444",
+      "titleFontSize": 28,
+      "enableCrossFilters": true,
+      "backgroundColor": "#ffffff",
+      "showFilterPanel": true,
+      "filtersParams": {
+        "panelPosition": "TOP",
+        "engineType": "LINO"
+      }
+    }
+  ],
+  "owner": "azoughlisaid.fst@gmail.com",
+  "listed": false,
+  "name": "Dashboard FX Analytics MAD EUR USD",
+  "theme": {
+    "id": "__dku_dss_default_theme__",
+    "name": "Default",
+    "colors": [
+      "#1f77b4",
+      "#ff7f0e",
+      "#2ca02c",
+      "#d62728",
+      "#9467bd",
+      "#8c564b",
+      "#e377c2",
+      "#7f7f7f"
+    ],
+    "themePalettes": {
+      "discrete": {
+        "id": "default_theme",
+        "name": "Theme default",
+        "category": "BUILT_IN",
+        "colors": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#d62728",
+          "#9467bd",
+          "#8c564b",
+          "#e377c2",
+          "#7f7f7f"
+        ],
+        "sample": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#d62728",
+          "#9467bd"
+        ],
+        "isCustom": false,
+        "createPairs": false
+      },
+      "continuous": [
+        {
+          "id": "default_theme",
+          "name": "Theme default",
+          "category": "BUILT_IN",
+          "colors": [
+            "#D3E8F7",
+            "#1f77b4"
+          ],
+          "isCustom": false,
+          "createPairs": false
+        },
+        {
+          "id": "default_theme_rev",
+          "name": "Theme default (rev)",
+          "category": "BUILT_IN",
+          "colors": [
+            "#1f77b4",
+            "#D3E8F7"
+          ],
+          "sample": [
+            "#1f77b4",
+            "#D3E8F7"
+          ],
+          "isCustom": false,
+          "createPairs": false
+        }
+      ],
+      "diverging": {
+        "id": "default_theme",
+        "name": "Theme default",
+        "category": "BUILT_IN",
+        "colors": [
+          "#1f77b4",
+          "#FFFFFF",
+          "#ff7f0e"
+        ],
+        "isCustom": false,
+        "createPairs": false
+      }
+    },
+    "palettes": {
+      "discrete": "default_theme",
+      "continuous": "default_theme",
+      "diverging": "default_theme"
+    },
+    "generalFormatting": {
+      "fontSize": 11,
+      "fontColor": "#333333",
+      "hasBackground": false,
+      "fontFamily": "SourceSansPro"
+    },
+    "pageTitleFormatting": {
+      "fontSize": 28,
+      "fontColor": "#444444",
+      "hasBackground": false
+    },
+    "tileTitleFormatting": {
+      "fontSize": 13,
+      "fontColor": "#000000",
+      "hasBackground": false
+    },
+    "chartTitleFormatting": {
+      "fontSize": 15,
+      "fontColor": "#333333",
+      "hasBackground": false
+    },
+    "legendFormatting": {
+      "fontSize": 11,
+      "fontColor": "#333333",
+      "hasBackground": false
+    },
+    "pageTitleAlignment": "CENTER",
+    "backgroundColor": "#FFFFFF",
+    "tileSpacing": 8,
+    "tileFormatting": {
+      "borderOptions": {
+        "color": "#CCCCCC",
+        "radius": 0,
+        "size": 1
+      },
+      "backgroundOpacity": 1.0
+    },
+    "isCustomized": false,
+    "isBuiltIn": true
+  },
+  "pageSectionSettings": {
+    "zoomMode": "FIT_TO_WIDTH",
+    "shouldDisplayPageSeparators": false,
+    "pageSectionFormat": {
+      "formatName": "A4",
+      "xInPx": 1754,
+      "yInPx": 1240,
+      "dpi": 150,
+      "orientation": "LANDSCAPE",
+      "ratio": 1.414516129032258
+    }
+  },
+  "showGrid": false,
+  "autoStackUp": false,
+  "columnNumber": 36,
+  "showNavigationArrows": false,
+  "reloadWhenEventReceived": false,
+  "syncDrillDown": true,
+  "tileSpacing": 8,
+  "circularNavigation": false,
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "azoughlisaid.fst@gmail.com"
+    },
+    "lastModifiedOn": 1790587273596
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
