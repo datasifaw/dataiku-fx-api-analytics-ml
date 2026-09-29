@@ -1,4 +1,20 @@
 {
+  "uiData": {
+    "mode": "\u0026\u0026",
+    "$latestOperator": "\u0026\u0026",
+    "$filterOptions": "rules",
+    "conditions": [
+      {
+        "input": "paire_devise",
+        "col": "base",
+        "string": "EUR/MAD",
+        "$showList": false,
+        "items": [],
+        "operator": "\u003d\u003d [string]"
+      }
+    ]
+  },
+  "$status": {},
   "distinct": false,
-  "enabled": false
+  "enabled": true
 }
