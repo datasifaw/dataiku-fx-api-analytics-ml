@@ -180,7 +180,7 @@
       "engineType": "LINO",
       "def": {
         "id": "5c0a2a8c",
-        "type": "grouped_columns",
+        "type": "scatter",
         "variant": "normal",
         "name": "Nouveau graphique",
         "userEditedName": false,
@@ -239,6 +239,7 @@
         "tooltipMeasures": [],
         "boxplotBreakdownDim": [],
         "boxplotValue": [],
+        "filters": [],
         "xAxisFormatting": {
           "displayAxis": true,
           "displayLineAndTicks": true,
@@ -448,6 +449,7 @@
           },
           "customColors": {}
         },
+        "colorGroups": [],
         "bubblesOptions": {
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
@@ -548,8 +550,8 @@
           "lockSquareGrid": false
         },
         "mapGridOptions": {
-          "gridLonDeg": 0.6,
-          "gridLatDeg": 0.6
+          "gridLonDeg": 0.5,
+          "gridLatDeg": 0.5
         },
         "radarOptions": {
           "filled": false,
@@ -702,7 +704,9 @@
           },
           "horizontal": {
             "show": false,
-            "displayAxis": {},
+            "displayAxis": {
+              "type": "LEFT_Y_AXIS"
+            },
             "lineFormatting": {
               "type": "FILLED",
               "color": "#d9d9d9",
