@@ -1,15 +1,417 @@
 {
   "taskType": "PREDICTION",
   "predictionType": "TIMESERIES_FORECAST",
+  "preprocessing": {
+    "timeseriesSampling": {
+      "numericalInterpolateMethod": "LINEAR",
+      "numericalExtrapolateMethod": "NO_EXTRAPOLATION",
+      "categoricalImputeMethod": "PREVIOUS_NEXT",
+      "duplicateTimestampsHandlingMethod": "FAIL_IF_CONFLICTING",
+      "startDateMode": "AUTO",
+      "customStartDate": "2020-01-01 00:00:00.000",
+      "endDateMode": "AUTO",
+      "customEndDate": "2026-09-22 00:00:00.000"
+    },
+    "useRawCategoricalData": false,
+    "feature_selection_params": {
+      "method": "NONE",
+      "random_forest_params": {
+        "n_trees": 30,
+        "depth": 10,
+        "n_features": 25
+      },
+      "lasso_params": {
+        "alpha": [
+          0.01,
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "cross_validate": true
+      },
+      "pca_params": {
+        "n_features": 25,
+        "variance_proportion": 0.9
+      },
+      "ica_params": {
+        "n_components": 25,
+        "fun": "logcosh"
+      },
+      "correlation_params": {
+        "min_abs_correlation": 0.0,
+        "max_abs_correlation": 1.0,
+        "n_features": 25
+      },
+      "custom_params": {
+        "code": "# type your code here"
+      }
+    },
+    "preprocessingFitSampleRatio": 1.0,
+    "preprocessingFitSampleSeed": 1337,
+    "target_remapping": [],
+    "per_feature": {
+      "date": {
+        "generate_derivative": false,
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "TIME",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DateOnly"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "paire_devise": {
+        "category_handling": "DUMMIFY",
+        "missing_handling": "NONE",
+        "missing_impute_with": "MODE",
+        "dummy_clip": "MAX_NB_CATEGORIES",
+        "cumulative_proportion": 0.95,
+        "min_samples": 10,
+        "max_nb_categories": 100,
+        "max_cat_safety": 200,
+        "nb_bins_hashing": 1048576,
+        "hash_whole_categories": true,
+        "dummy_drop": "NONE",
+        "impact_method": "M_ESTIMATOR",
+        "impact_m": 10,
+        "impact_kfold": true,
+        "impact_kfold_k": 5,
+        "impact_kfold_seed": 1337,
+        "ordinal_order": "COUNT",
+        "ordinal_ascending": false,
+        "ordinal_default_mode": "HIGHEST",
+        "ordinal_default_value": 0,
+        "frequency_default_mode": "EXPLICIT",
+        "frequency_default_value": 0.0,
+        "frequency_normalized": true,
+        "role": "REJECT",
+        "type": "CATEGORY",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "Text"
+        },
+        "autoReason": "REJECT_ZERO_VARIANCE",
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "rate_precedent": {
+        "generate_derivative": false,
+        "numerical_handling": "REGULAR",
+        "missing_handling": "IMPUTE",
+        "missing_impute_with": "MEAN",
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "rescaling": "AVGSTD",
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "REJECT",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DoubleMeaning"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "variation_pct": {
+        "generate_derivative": false,
+        "numerical_handling": "REGULAR",
+        "missing_handling": "IMPUTE",
+        "missing_impute_with": "MEAN",
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "rescaling": "AVGSTD",
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "REJECT",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DoubleMeaning"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "quote": {
+        "category_handling": "DUMMIFY",
+        "missing_handling": "NONE",
+        "missing_impute_with": "MODE",
+        "dummy_clip": "MAX_NB_CATEGORIES",
+        "cumulative_proportion": 0.95,
+        "min_samples": 10,
+        "max_nb_categories": 100,
+        "max_cat_safety": 200,
+        "nb_bins_hashing": 1048576,
+        "hash_whole_categories": true,
+        "dummy_drop": "NONE",
+        "impact_method": "M_ESTIMATOR",
+        "impact_m": 10,
+        "impact_kfold": true,
+        "impact_kfold_k": 5,
+        "impact_kfold_seed": 1337,
+        "ordinal_order": "COUNT",
+        "ordinal_ascending": false,
+        "ordinal_default_mode": "HIGHEST",
+        "ordinal_default_value": 0,
+        "frequency_default_mode": "EXPLICIT",
+        "frequency_default_value": 0.0,
+        "frequency_normalized": true,
+        "role": "REJECT",
+        "type": "CATEGORY",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "Text"
+        },
+        "autoReason": "REJECT_ZERO_VARIANCE",
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "moyenne_mobile_7": {
+        "generate_derivative": false,
+        "numerical_handling": "REGULAR",
+        "missing_handling": "IMPUTE",
+        "missing_impute_with": "MEAN",
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "rescaling": "AVGSTD",
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "REJECT",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DoubleMeaning"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "rate": {
+        "generate_derivative": false,
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "TARGET",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DoubleMeaning"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "volatilite_7": {
+        "generate_derivative": false,
+        "numerical_handling": "REGULAR",
+        "missing_handling": "IMPUTE",
+        "missing_impute_with": "MEAN",
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "rescaling": "AVGSTD",
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "REJECT",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DoubleMeaning"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "variation": {
+        "generate_derivative": false,
+        "numerical_handling": "REGULAR",
+        "missing_handling": "IMPUTE",
+        "missing_impute_with": "MEAN",
+        "impute_constant_value": 0.0,
+        "keep_regular": false,
+        "rescaling": "AVGSTD",
+        "monotonic": "NONE",
+        "quantile_bin_nb_bins": 4,
+        "binarize_threshold_mode": "MEDIAN",
+        "binarize_constant_threshold": 0.0,
+        "datetime_cyclical_periods": [],
+        "role": "REJECT",
+        "type": "NUMERIC",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "DoubleMeaning"
+        },
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      },
+      "base": {
+        "category_handling": "DUMMIFY",
+        "missing_handling": "NONE",
+        "missing_impute_with": "MODE",
+        "dummy_clip": "MAX_NB_CATEGORIES",
+        "cumulative_proportion": 0.95,
+        "min_samples": 10,
+        "max_nb_categories": 100,
+        "max_cat_safety": 200,
+        "nb_bins_hashing": 1048576,
+        "hash_whole_categories": true,
+        "dummy_drop": "NONE",
+        "impact_method": "M_ESTIMATOR",
+        "impact_m": 10,
+        "impact_kfold": true,
+        "impact_kfold_k": 5,
+        "impact_kfold_seed": 1337,
+        "ordinal_order": "COUNT",
+        "ordinal_ascending": false,
+        "ordinal_default_mode": "HIGHEST",
+        "ordinal_default_value": 0,
+        "frequency_default_mode": "EXPLICIT",
+        "frequency_default_value": 0.0,
+        "frequency_normalized": true,
+        "role": "REJECT",
+        "type": "CATEGORY",
+        "state": {
+          "userModified": false,
+          "autoModifiedByDSS": false,
+          "recordedMeaning": "CurrencyMeaning"
+        },
+        "autoReason": "REJECT_ZERO_VARIANCE",
+        "customHandlingCode": "",
+        "customProcessorWantsMatrix": false,
+        "sendToInput": "main"
+      }
+    },
+    "feature_generation": {
+      "pairwise_linear": {
+        "behavior": "DISABLED"
+      },
+      "polynomial_combinations": {
+        "behavior": "DISABLED"
+      },
+      "manual_interactions": {
+        "interactions": []
+      },
+      "numericals_clustering": {
+        "k": 0,
+        "all_features": false,
+        "input_features": [],
+        "behavior": "DISABLED"
+      },
+      "categoricals_count_transformer": {
+        "all_features": false,
+        "input_features": [],
+        "behavior": "DISABLED"
+      },
+      "shifts": {
+        "rate": {
+          "from_forecast": [
+            -2,
+            -1,
+            0
+          ],
+          "from_horizon": [
+            -12,
+            -11,
+            -10
+          ],
+          "from_horizon_auto": [],
+          "from_horizon_mode": "AUTO"
+        }
+      },
+      "auto_shifts_params": {
+        "max_selected_horizon_shifts": 3,
+        "min_horizon_shift_past_only": -45,
+        "max_horizon_shift_past_only": -10,
+        "min_horizon_shift_known_in_advance": -35,
+        "max_horizon_shift_known_in_advance": 0
+      },
+      "windows": [
+        {
+          "length": 14,
+          "shift": 0,
+          "is_from_forecast": true,
+          "operations_map": {
+            "rate": [
+              {
+                "operation": "MEAN",
+                "enabled": true
+              },
+              {
+                "operation": "MEDIAN",
+                "enabled": false
+              },
+              {
+                "operation": "STD",
+                "enabled": true
+              },
+              {
+                "operation": "MIN",
+                "enabled": false
+              },
+              {
+                "operation": "MAX",
+                "enabled": false
+              },
+              {
+                "operation": "FREQUENCY",
+                "enabled": false
+              }
+            ]
+          }
+        }
+      ],
+      "windows_rescale_numericals": false,
+      "windows_max_categories": 10
+    }
+  },
   "timeVariable": "date",
   "timestepParams": {
-    "numberOfTimeunits": 7,
+    "numberOfTimeunits": 1,
     "timeunit": "DAY",
     "endOfWeekDay": 1,
     "unitAlignment": 0,
     "monthlyAlignment": 31
   },
-  "predictionLength": 0,
+  "predictionLength": 10,
   "timeseriesIdentifiers": [],
   "quantilesToForecast": [
     0.1,
@@ -23,7 +425,18 @@
     0.9
   ],
   "customTrainTestSplit": false,
-  "customTrainTestIntervals": [],
+  "customTrainTestIntervals": [
+    {
+      "train": [
+        "2020-01-01 00:00:00.000",
+        "2026-09-13 00:00:00.000"
+      ],
+      "test": [
+        "2026-09-13 00:00:00.000",
+        "2026-09-23 00:00:00.000"
+      ]
+    }
+  ],
   "evaluationParams": {
     "gapSize": 0,
     "testSize": 10
@@ -52,7 +465,3770 @@
       "maxReadUncompressedBytes": -1
     }
   },
+  "modeling": {
+    "skipExpensiveReports": false,
+    "skipPermutationImportance": true,
+    "perIdentifierPermutationImportance": false,
+    "random_forest_regression": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          100
+        ],
+        "range": {
+          "min": 80,
+          "max": 200,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "n_jobs": 4,
+      "max_tree_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          8
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "selection_mode": "prop",
+      "max_features": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_feature_prop": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "random_forest_classification": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          100
+        ],
+        "range": {
+          "min": 80,
+          "max": 200,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "n_jobs": 4,
+      "max_tree_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          8
+        ],
+        "range": {
+          "min": 6,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "selection_mode": "sqrt",
+      "max_features": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_feature_prop": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.3
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "extra_trees": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          100
+        ],
+        "range": {
+          "min": 50,
+          "max": 150,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "n_jobs": 4,
+      "max_tree_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          8
+        ],
+        "range": {
+          "min": 6,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "selection_mode": "sqrt",
+      "max_features": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_feature_prop": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.3
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "gbt_classification": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          100
+        ],
+        "range": {
+          "min": 80,
+          "max": 300,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "selection_mode": "sqrt",
+      "max_features": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          0
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_feature_prop": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.3
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "loss": {
+        "values": {
+          "deviance": {
+            "enabled": true
+          },
+          "exponential": {
+            "enabled": false
+          }
+        }
+      },
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "gbt_regression": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          100
+        ],
+        "range": {
+          "min": 80,
+          "max": 300,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "selection_mode": "prop",
+      "max_features": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          0
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_feature_prop": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "loss": {
+        "values": {
+          "huber": {
+            "enabled": false
+          },
+          "lad": {
+            "enabled": false
+          },
+          "ls": {
+            "enabled": true
+          }
+        }
+      },
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "decision_tree_classification": {
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 3,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "criterion": {
+        "values": {
+          "entropy": {
+            "enabled": false
+          },
+          "gini": {
+            "enabled": true
+          }
+        }
+      },
+      "splitter": {
+        "values": {
+          "best": {
+            "enabled": true
+          },
+          "random": {
+            "enabled": false
+          }
+        }
+      },
+      "enabled": false
+    },
+    "decision_tree_regression": {
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 3,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "criterion": {
+        "values": {
+          "entropy": {
+            "enabled": false
+          },
+          "gini": {
+            "enabled": true
+          }
+        }
+      },
+      "splitter": {
+        "values": {
+          "best": {
+            "enabled": true
+          },
+          "random": {
+            "enabled": false
+          }
+        }
+      },
+      "enabled": false
+    },
+    "ridge_regression": {
+      "alphaMode": "MANUAL",
+      "alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.1,
+          1.0,
+          3.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 3.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "enabled": false
+    },
+    "lasso_regression": {
+      "alphaMode": "AUTO_CV",
+      "alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.1,
+          1.0,
+          10.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "enabled": false
+    },
+    "leastsquare_regression": {
+      "n_jobs": 2,
+      "enabled": false
+    },
+    "sgd_regression": {
+      "epsilon": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.01
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "loss": {
+        "values": {
+          "huber": {
+            "enabled": false
+          },
+          "squared_loss": {
+            "enabled": true
+          }
+        }
+      },
+      "penalty": {
+        "values": {
+          "elasticnet": {
+            "enabled": false
+          },
+          "l1": {
+            "enabled": true
+          },
+          "l2": {
+            "enabled": false
+          }
+        }
+      },
+      "alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001,
+          1.0E-4,
+          1.0E-5
+        ],
+        "range": {
+          "min": 1.0E-5,
+          "max": 0.001,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "l1_ratio": 0.15,
+      "max_iter": 1000,
+      "tol": 0.001,
+      "n_jobs": 2,
+      "enabled": false
+    },
+    "sgd_classifier": {
+      "loss": {
+        "values": {
+          "log": {
+            "enabled": true
+          },
+          "modified_huber": {
+            "enabled": false
+          }
+        }
+      },
+      "penalty": {
+        "values": {
+          "elasticnet": {
+            "enabled": false
+          },
+          "l1": {
+            "enabled": true
+          },
+          "l2": {
+            "enabled": false
+          }
+        }
+      },
+      "alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001,
+          1.0E-4,
+          1.0E-5
+        ],
+        "range": {
+          "min": 1.0E-5,
+          "max": 0.001,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "l1_ratio": 0.15,
+      "max_iter": 1000,
+      "tol": 0.001,
+      "n_jobs": 2,
+      "enabled": false
+    },
+    "knn": {
+      "k": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "distance_weighting": false,
+      "algorithm": "auto",
+      "p": 2,
+      "leaf_size": 30,
+      "enabled": false
+    },
+    "logistic_regression": {
+      "multi_class": "ovr",
+      "penalty": {
+        "values": {
+          "l1": {
+            "enabled": false
+          },
+          "l2": {
+            "enabled": true
+          }
+        }
+      },
+      "C": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.01,
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 100.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "n_jobs": 2,
+      "enabled": false
+    },
+    "neural_network": {
+      "layer_sizes": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 8,
+          "max": 16,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "activation": "relu",
+      "solver": "adam",
+      "alpha": 0.001,
+      "batch_size": 200,
+      "auto_batch": true,
+      "max_iter": 200,
+      "seed": 1337,
+      "tol": 1.0E-4,
+      "early_stopping": false,
+      "validation_fraction": 0.1,
+      "beta_1": 0.9,
+      "beta_2": 0.999,
+      "epsilon": 1.0E-8,
+      "learning_rate": "constant",
+      "power_t": 0.5,
+      "momentum": 0.8,
+      "nesterovs_momentum": true,
+      "shuffle": true,
+      "learning_rate_init": 0.001,
+      "enabled": false
+    },
+    "svc_classifier": {
+      "C": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "gamma": {
+        "values": {
+          "auto": {
+            "enabled": false
+          },
+          "custom": {
+            "enabled": false
+          },
+          "scale": {
+            "enabled": true
+          }
+        }
+      },
+      "custom_gamma": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "kernel": {
+        "values": {
+          "linear": {
+            "enabled": false
+          },
+          "poly": {
+            "enabled": false
+          },
+          "rbf": {
+            "enabled": true
+          },
+          "sigmoid": {
+            "enabled": false
+          }
+        }
+      },
+      "coef0": 0.0,
+      "tol": 0.001,
+      "max_iter": -1,
+      "enabled": false
+    },
+    "svm_regression": {
+      "C": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "gamma": {
+        "values": {
+          "auto": {
+            "enabled": false
+          },
+          "custom": {
+            "enabled": false
+          },
+          "scale": {
+            "enabled": true
+          }
+        }
+      },
+      "custom_gamma": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "kernel": {
+        "values": {
+          "linear": {
+            "enabled": false
+          },
+          "poly": {
+            "enabled": false
+          },
+          "rbf": {
+            "enabled": true
+          },
+          "sigmoid": {
+            "enabled": false
+          }
+        }
+      },
+      "coef0": 0.0,
+      "tol": 0.001,
+      "max_iter": -1,
+      "enabled": false
+    },
+    "lars_params": {
+      "max_features": 0,
+      "K": 100,
+      "enabled": false
+    },
+    "lightgbm_regression": {
+      "boosting_type": {
+        "values": {
+          "gbdt": {
+            "enabled": true
+          },
+          "goss": {
+            "enabled": false
+          }
+        }
+      },
+      "num_leaves": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          31
+        ],
+        "range": {
+          "min": 20,
+          "max": 500,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1,
+          0.2
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.6,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          75
+        ],
+        "range": {
+          "min": 50,
+          "max": 200,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_split_gain": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_child_weight": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_child_samples": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10,
+          30
+        ],
+        "range": {
+          "min": 1,
+          "max": 100,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "colsample_bytree": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.7,
+          0.9
+        ],
+        "range": {
+          "min": 0.5,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "reg_alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "reg_lambda": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "early_stopping": false,
+      "early_stopping_rounds": 4,
+      "random_state": 1337,
+      "n_jobs": 4,
+      "max_depth": -1,
+      "subsample": 0.9,
+      "subsample_freq": 1,
+      "use_bagging": false,
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "lightgbm_classification": {
+      "boosting_type": {
+        "values": {
+          "gbdt": {
+            "enabled": true
+          },
+          "goss": {
+            "enabled": false
+          }
+        }
+      },
+      "num_leaves": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          31
+        ],
+        "range": {
+          "min": 20,
+          "max": 500,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1,
+          0.2
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.6,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          75
+        ],
+        "range": {
+          "min": 50,
+          "max": 200,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_split_gain": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_child_weight": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_child_samples": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10,
+          30
+        ],
+        "range": {
+          "min": 1,
+          "max": 100,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "colsample_bytree": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.7,
+          0.9
+        ],
+        "range": {
+          "min": 0.5,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "reg_alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "reg_lambda": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "early_stopping": true,
+      "early_stopping_rounds": 4,
+      "random_state": 1337,
+      "n_jobs": 4,
+      "max_depth": -1,
+      "subsample": 0.9,
+      "subsample_freq": 1,
+      "use_bagging": false,
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "tabicl_classification": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          4
+        ],
+        "range": {
+          "min": 4,
+          "max": 32,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "class_shift": {
+        "values": {
+          "false": {
+            "enabled": true
+          },
+          "true": {
+            "enabled": true
+          }
+        }
+      },
+      "random_state": 1337,
+      "n_jobs": 4,
+      "batch_size": 2,
+      "softmax_temperature": 0.9,
+      "outlier_threshold": 4.0,
+      "norm_none": true,
+      "norm_power": true,
+      "norm_quantile": false,
+      "norm_quantile_rtdl": false,
+      "norm_robust": false,
+      "enabled": false
+    },
+    "xgboost": {
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.2
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "gamma": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_child_weight": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.5,
+          "max": 5.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_delta_step": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "EXPLICIT",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "subsample": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.5,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "colsample_bytree": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.5,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "colsample_bylevel": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.5,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "lambda": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "booster": {
+        "values": {
+          "dart": {
+            "enabled": false
+          },
+          "gbtree": {
+            "enabled": true
+          }
+        }
+      },
+      "objective": {
+        "values": {
+          "binary_logistic": {
+            "enabled": false
+          },
+          "count_poisson": {
+            "enabled": false
+          },
+          "multi_softprob": {
+            "enabled": false
+          },
+          "reg_gamma": {
+            "enabled": false
+          },
+          "reg_linear": {
+            "enabled": true
+          },
+          "reg_logistic": {
+            "enabled": false
+          },
+          "reg_tweedie": {
+            "enabled": false
+          }
+        }
+      },
+      "n_estimators": 300,
+      "nthread": 4,
+      "scale_pos_weight": 1.0,
+      "base_score": 0.5,
+      "impute_missing": false,
+      "missing": 0.0,
+      "tree_method": "auto",
+      "seed": 1337,
+      "enable_early_stopping": false,
+      "early_stopping_rounds": 4,
+      "tweedie_variance_power": 1.5,
+      "allow_sparse_matrices": true,
+      "enabled": false
+    },
+    "catboost_regression": {
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.03
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1,
+          "max": 16
+        },
+        "values": [
+          6
+        ],
+        "range": {
+          "min": 4,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "l2_leaf_reg": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          3.0
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 100.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "border_count_mode_auto": true,
+      "border_count": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1,
+          "max": 65535
+        },
+        "values": [
+          254
+        ],
+        "range": {
+          "min": 1,
+          "max": 255,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "random_strength": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_data_in_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 255,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "bagging_temperature": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "bootstrap_type": "Auto",
+      "grow_policy": "SymmetricTree",
+      "nthread": 4,
+      "n_estimators": 1000,
+      "enable_early_stopping": true,
+      "early_stopping_rounds": 4,
+      "enabled": false
+    },
+    "catboost_classification": {
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.03
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1,
+          "max": 16
+        },
+        "values": [
+          6
+        ],
+        "range": {
+          "min": 4,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "l2_leaf_reg": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          3.0
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 100.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "border_count_mode_auto": true,
+      "border_count": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1,
+          "max": 65535
+        },
+        "values": [
+          254
+        ],
+        "range": {
+          "min": 1,
+          "max": 255,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "random_strength": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_data_in_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 255,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "bagging_temperature": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "bootstrap_type": "Auto",
+      "grow_policy": "SymmetricTree",
+      "nthread": 4,
+      "n_estimators": 1000,
+      "enable_early_stopping": true,
+      "early_stopping_rounds": 4,
+      "enabled": false
+    },
+    "deep_neural_network_regression": {
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-5,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "hidden_layers": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "units": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          32
+        ],
+        "range": {
+          "min": 1,
+          "max": 256,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "batch_size": 32,
+      "max_epochs": 50,
+      "early_stopping_enabled": true,
+      "early_stopping_patience": 5,
+      "early_stopping_threshold": 1.0E-4,
+      "dropout": 0.0,
+      "reg_l2": 0.0,
+      "reg_l1": 0.0,
+      "enabled": false
+    },
+    "deep_neural_network_classification": {
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-5,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "hidden_layers": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "units": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          32
+        ],
+        "range": {
+          "min": 1,
+          "max": 256,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "batch_size": 32,
+      "max_epochs": 50,
+      "early_stopping_enabled": true,
+      "early_stopping_patience": 5,
+      "early_stopping_threshold": 1.0E-4,
+      "dropout": 0.0,
+      "reg_l2": 0.0,
+      "reg_l1": 0.0,
+      "enabled": false
+    },
+    "deep_learning_sparkling": {
+      "enabled": false,
+      "hidden": [
+        10,
+        10
+      ],
+      "activation": "RECTIFIER",
+      "epochs": 10.0,
+      "l1": 0.0,
+      "l2": 0.0,
+      "max_w2": -1.0,
+      "dropout": false,
+      "input_dropout_ratio": 0.0,
+      "hidden_dropout_ratios": [
+        0.1,
+        0.2
+      ],
+      "use_adaptative": true,
+      "rho": 0.99,
+      "epsilon": 1.0E-8,
+      "rate": 0.005,
+      "rate_annealing": 1.0E-6,
+      "rate_decay": 1.0,
+      "momentum_start": 0.0,
+      "momentum_ramp": 1000000.0,
+      "momentum_stable": 0.0
+    },
+    "gbm_sparkling": {
+      "enabled": false,
+      "learn_rate": 0.1,
+      "ntrees": 50,
+      "max_depth": 5,
+      "min_rows": 10,
+      "family": "AUTO",
+      "nbins": 20,
+      "nbins_cats": 1024,
+      "balance_classes": false,
+      "max_after_balance_size": 2.0,
+      "tweedie_power": 1.5
+    },
+    "glm_sparkling": {
+      "enabled": false,
+      "family": "gaussian",
+      "alpha": 0.5,
+      "lambda": 0.0,
+      "max_iter": 100,
+      "beta_epsilon": 1.0E-4,
+      "tweedie_variance_power": 0.5
+    },
+    "rf_sparkling": {
+      "enabled": false,
+      "ntrees": 50,
+      "max_depth": 5,
+      "min_rows": 1,
+      "mtries": -1,
+      "sample_rate": 0.6666,
+      "nbins": 20,
+      "nbins_cats": 1024
+    },
+    "nb_sparkling": {
+      "enabled": false,
+      "laplace": 0.0,
+      "min_std_dev": 0.001
+    },
+    "mllib_naive_bayes": {
+      "enabled": false,
+      "lambda": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      }
+    },
+    "mllib_logit": {
+      "enabled": false,
+      "max_iter": 30,
+      "reg_param": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "enet_param": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      }
+    },
+    "mllib_linreg": {
+      "enabled": false,
+      "max_iter": 30,
+      "reg_param": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "enet_param": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      }
+    },
+    "mllib_dt": {
+      "enabled": false,
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 8,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_bins": 32,
+      "max_memory_mb": 256,
+      "min_info_gain": 0.0,
+      "min_instance_per_node": 1,
+      "cache_node_ids": false,
+      "checkpoint_interval": 10
+    },
+    "mllib_rf": {
+      "enabled": false,
+      "cache_node_ids": false,
+      "checkpoint_interval": 10,
+      "impurity": "gini",
+      "max_bins": 32,
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 8,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_memory_mb": 256,
+      "min_info_gain": 0.0,
+      "min_instance_per_node": 1,
+      "seed": 1337,
+      "subsampling_rate": 1.0,
+      "num_trees": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          20
+        ],
+        "range": {
+          "min": 10,
+          "max": 50,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "subset_strategy": "auto",
+      "step_size": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      }
+    },
+    "mllib_gbt": {
+      "enabled": false,
+      "cache_node_ids": false,
+      "checkpoint_interval": 10,
+      "impurity": "gini",
+      "max_bins": 32,
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 8,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_memory_mb": 256,
+      "min_info_gain": 0.0,
+      "min_instance_per_node": 1,
+      "seed": 1337,
+      "subsampling_rate": 1.0,
+      "num_trees": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          20
+        ],
+        "range": {
+          "min": 10,
+          "max": 50,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "subset_strategy": "auto",
+      "step_size": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.5,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      }
+    },
+    "vertica_linear_regression": {
+      "enabled": false,
+      "maxIterations": 200,
+      "epsilon": 1.0E-6,
+      "optimizer": "BFGS"
+    },
+    "vertica_logistic_regression": {
+      "enabled": false,
+      "maxIterations": 200,
+      "epsilon": 1.0E-6,
+      "optimizer": "BFGS"
+    },
+    "custom_python": [],
+    "plugin_python": {},
+    "keras": {
+      "epochs": 10,
+      "batchSize": 32,
+      "trainOnAllData": true,
+      "stepsPerEpoch": 100,
+      "shuffleData": true,
+      "cachePreprocessedData": true,
+      "advancedFitMode": false,
+      "enabled": false,
+      "kerasInputs": [
+        "main"
+      ]
+    },
+    "trivial_identity_timeseries": {
+      "enabled": false
+    },
+    "seasonal_naive_timeseries": {
+      "season_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          7
+        ],
+        "range": {
+          "min": 1,
+          "max": 7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "enabled": false
+    },
+    "arima_timeseries": {
+      "p": 0,
+      "d": 0,
+      "q": 0,
+      "P": 0,
+      "D": 0,
+      "Q": 0,
+      "s": 7,
+      "trend": "n",
+      "trend_offset": 1,
+      "enforce_stationarity": true,
+      "enforce_invertibility": true,
+      "concentrate_scale": false,
+      "enabled": true
+    },
+    "autoarima_timeseries": {
+      "m": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          7
+        ],
+        "range": {
+          "min": 1,
+          "max": 7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "information_criterion": {
+        "values": {
+          "aic": {
+            "enabled": true
+          },
+          "aicc": {
+            "enabled": false
+          },
+          "bic": {
+            "enabled": false
+          },
+          "hqic": {
+            "enabled": false
+          },
+          "oob": {
+            "enabled": false
+          }
+        }
+      },
+      "test": {
+        "values": {
+          "adf": {
+            "enabled": false
+          },
+          "kpss": {
+            "enabled": true
+          },
+          "pp": {
+            "enabled": false
+          }
+        }
+      },
+      "seasonal_test": {
+        "values": {
+          "ch": {
+            "enabled": false
+          },
+          "ocsb": {
+            "enabled": true
+          }
+        }
+      },
+      "method": {
+        "values": {
+          "basinhopping": {
+            "enabled": false
+          },
+          "bfgs": {
+            "enabled": false
+          },
+          "cg": {
+            "enabled": false
+          },
+          "lbfgs": {
+            "enabled": true
+          },
+          "ncg": {
+            "enabled": false
+          },
+          "newton": {
+            "enabled": false
+          },
+          "nm": {
+            "enabled": false
+          },
+          "powell": {
+            "enabled": false
+          }
+        }
+      },
+      "start_p": 1,
+      "max_p": 5,
+      "max_d": 2,
+      "start_q": 1,
+      "max_q": 5,
+      "start_P": 1,
+      "max_P": 2,
+      "max_D": 1,
+      "start_Q": 1,
+      "max_Q": 2,
+      "max_order": 5,
+      "stationary": false,
+      "maxiter": 50,
+      "enabled": true
+    },
+    "croston_timeseries": {
+      "variant": {
+        "values": {
+          "CLASSIC": {
+            "enabled": false
+          },
+          "SBA": {
+            "enabled": true
+          },
+          "TSB": {
+            "enabled": false
+          }
+        }
+      },
+      "alpha_d": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "alpha_p": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 1.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "enabled": false
+    },
+    "ets_timeseries": {
+      "trend": {
+        "values": {
+          "add": {
+            "enabled": false
+          },
+          "mul": {
+            "enabled": false
+          },
+          "none": {
+            "enabled": true
+          }
+        }
+      },
+      "damped_trend": {
+        "values": {
+          "false": {
+            "enabled": true
+          },
+          "true": {
+            "enabled": false
+          }
+        }
+      },
+      "seasonal": {
+        "values": {
+          "add": {
+            "enabled": false
+          },
+          "mul": {
+            "enabled": false
+          },
+          "none": {
+            "enabled": true
+          }
+        }
+      },
+      "error": {
+        "values": {
+          "add": {
+            "enabled": true
+          },
+          "mul": {
+            "enabled": false
+          }
+        }
+      },
+      "seasonal_periods": 7,
+      "include_unstable": false,
+      "seed": 1337,
+      "enabled": false
+    },
+    "seasonal_loess_timeseries": {
+      "period": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 2
+        },
+        "values": [
+          7
+        ],
+        "range": {
+          "min": 2,
+          "max": 7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "seasonal": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 3
+        },
+        "values": [
+          7
+        ],
+        "range": {
+          "min": 3,
+          "max": 31,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "trend": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 3
+        },
+        "values": [
+          9
+        ],
+        "range": {
+          "min": 3,
+          "max": 11,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "low_pass": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 3
+        },
+        "values": [
+          9
+        ],
+        "range": {
+          "min": 3,
+          "max": 11,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "seasonal_deg": {
+        "values": {
+          "0": {
+            "enabled": false
+          },
+          "1": {
+            "enabled": true
+          }
+        }
+      },
+      "trend_deg": {
+        "values": {
+          "0": {
+            "enabled": false
+          },
+          "1": {
+            "enabled": true
+          }
+        }
+      },
+      "low_pass_deg": {
+        "values": {
+          "0": {
+            "enabled": false
+          },
+          "1": {
+            "enabled": true
+          }
+        }
+      },
+      "seasonal_jump": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "trend_jump": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "low_pass_jump": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "auto_trend": true,
+      "auto_low_pass": true,
+      "enabled": false
+    },
+    "prophet_timeseries": {
+      "changepoint_prior_scale": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.005,
+          0.05
+        ],
+        "range": {
+          "min": 0.001,
+          "max": 0.05,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "seasonality_prior_scale": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          10.0
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "seasonality_mode": {
+        "values": {
+          "additive": {
+            "enabled": true
+          },
+          "multiplicative": {
+            "enabled": false
+          }
+        }
+      },
+      "holidays_prior_scale": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          10.0
+        ],
+        "range": {
+          "min": 0.01,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "growth": "linear",
+      "floor": 0.0,
+      "n_changepoints": 25,
+      "changepoint_range": 0.8,
+      "yearly_seasonality": "auto",
+      "weekly_seasonality": "auto",
+      "daily_seasonality": "auto",
+      "seed": 1337,
+      "_use_external_features": false,
+      "enabled": false
+    },
+    "gluonts_npts_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1100
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "kernel_type": {
+        "values": {
+          "exponential": {
+            "enabled": true
+          },
+          "uniform": {
+            "enabled": false
+          }
+        }
+      },
+      "exp_kernel_weights": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.5,
+          1.0,
+          2.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 10.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "feature_scale": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1000.0
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 10000.0,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "full_context": true,
+      "use_seasonal_model": true,
+      "use_default_time_features": true,
+      "seed": 1337,
+      "enabled": true
+    },
+    "gluonts_torch_deepar_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "num_layers": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          2
+        ],
+        "range": {
+          "min": 1,
+          "max": 4,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "num_cells": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          40
+        ],
+        "range": {
+          "min": 30,
+          "max": 50,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "dropout_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.2,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "distr_output": {
+        "values": {
+          "NegativeBinomialOutput": {
+            "enabled": false
+          },
+          "StudentTOutput": {
+            "enabled": true
+          }
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "weight_decay": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1.0E-8
+        ],
+        "range": {
+          "min": 1.0E-12,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "full_context": true,
+      "use_timeseries_identifiers_as_features": false,
+      "scaling": true,
+      "patience": 10,
+      "num_parallel_samples": 100,
+      "batch_size": 32,
+      "epochs": 10,
+      "auto_num_batches_per_epoch": true,
+      "num_batches_per_epoch": 50,
+      "seed": 1337,
+      "enabled": false
+    },
+    "gluonts_torch_simple_feed_forward_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "distr_output": {
+        "values": {
+          "NegativeBinomialOutput": {
+            "enabled": false
+          },
+          "StudentTOutput": {
+            "enabled": true
+          }
+        }
+      },
+      "batch_normalization": {
+        "values": {
+          "false": {
+            "enabled": false
+          },
+          "true": {
+            "enabled": true
+          }
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001,
+          0.01
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "weight_decay": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          1.0E-8
+        ],
+        "range": {
+          "min": 1.0E-12,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "num_hidden_dimensions": [
+        40,
+        40
+      ],
+      "full_context": true,
+      "batch_size": 32,
+      "epochs": 10,
+      "auto_num_batches_per_epoch": true,
+      "num_batches_per_epoch": 50,
+      "seed": 1337,
+      "enabled": false
+    },
+    "gluonts_simple_feed_forward_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "distr_output": {
+        "values": {
+          "GaussianOutput": {
+            "enabled": false
+          },
+          "NegativeBinomialOutput": {
+            "enabled": false
+          },
+          "StudentTOutput": {
+            "enabled": true
+          }
+        }
+      },
+      "batch_normalization": {
+        "values": {
+          "false": {
+            "enabled": false
+          },
+          "true": {
+            "enabled": true
+          }
+        }
+      },
+      "mean_scaling": {
+        "values": {
+          "false": {
+            "enabled": false
+          },
+          "true": {
+            "enabled": true
+          }
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001,
+          0.01
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "num_hidden_dimensions": [
+        40,
+        40
+      ],
+      "full_context": true,
+      "num_parallel_samples": 100,
+      "batch_size": 32,
+      "epochs": 10,
+      "auto_num_batches_per_epoch": true,
+      "num_batches_per_epoch": 50,
+      "seed": 1337,
+      "enabled": false
+    },
+    "gluonts_deepar_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "num_layers": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          2
+        ],
+        "range": {
+          "min": 1,
+          "max": 4,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "num_cells": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          40
+        ],
+        "range": {
+          "min": 30,
+          "max": 50,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "cell_type": {
+        "values": {
+          "gru": {
+            "enabled": false
+          },
+          "lstm": {
+            "enabled": true
+          }
+        }
+      },
+      "dropoutcell_type": {
+        "values": {
+          "RNNZoneoutCell": {
+            "enabled": false
+          },
+          "VariationalDropoutCell": {
+            "enabled": false
+          },
+          "VariationalZoneoutCell": {
+            "enabled": false
+          },
+          "ZoneoutCell": {
+            "enabled": true
+          }
+        }
+      },
+      "dropout_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.2,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "alpha": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 0.2,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "beta": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "values": [
+          0.0
+        ],
+        "range": {
+          "min": 0.0,
+          "max": 0.2,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "distr_output": {
+        "values": {
+          "GaussianOutput": {
+            "enabled": false
+          },
+          "NegativeBinomialOutput": {
+            "enabled": false
+          },
+          "StudentTOutput": {
+            "enabled": true
+          }
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "full_context": true,
+      "use_timeseries_identifiers_as_features": false,
+      "scaling": true,
+      "num_parallel_samples": 100,
+      "minimum_scale": 1.0E-10,
+      "batch_size": 32,
+      "epochs": 10,
+      "auto_num_batches_per_epoch": true,
+      "num_batches_per_epoch": 50,
+      "seed": 1337,
+      "enabled": false
+    },
+    "gluonts_transformer_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "model_dim": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          32
+        ],
+        "range": {
+          "min": 16,
+          "max": 64,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "inner_ff_dim_scale": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          4
+        ],
+        "range": {
+          "min": 1,
+          "max": 10,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "num_heads": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          8
+        ],
+        "range": {
+          "min": 4,
+          "max": 8,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "dropout_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.1
+        ],
+        "range": {
+          "min": 0.05,
+          "max": 0.2,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "distr_output": {
+        "values": {
+          "GaussianOutput": {
+            "enabled": false
+          },
+          "NegativeBinomialOutput": {
+            "enabled": false
+          },
+          "StudentTOutput": {
+            "enabled": true
+          }
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "full_context": true,
+      "use_timeseries_identifiers_as_features": false,
+      "num_parallel_samples": 100,
+      "batch_size": 32,
+      "epochs": 10,
+      "auto_num_batches_per_epoch": true,
+      "num_batches_per_epoch": 50,
+      "seed": 1337,
+      "enabled": false
+    },
+    "gluonts_mqcnn_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          40
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "full_context": true,
+      "use_timeseries_identifiers_as_features": false,
+      "decoder_mlp_dim_seq": [
+        30
+      ],
+      "channels_seq": [
+        30,
+        30,
+        30
+      ],
+      "dilation_seq": [
+        1,
+        3,
+        5
+      ],
+      "kernel_size_seq": [
+        7,
+        3,
+        3
+      ],
+      "scaling": true,
+      "batch_size": 32,
+      "epochs": 10,
+      "auto_num_batches_per_epoch": true,
+      "num_batches_per_epoch": 50,
+      "seed": 1337,
+      "enabled": false
+    },
+    "nhits_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "batch_size": 32,
+      "max_steps": 1000,
+      "patience": -1,
+      "random_state": 1337,
+      "enabled": false
+    },
+    "tft_timeseries": {
+      "context_length": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "hidden_size_factor": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          32
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "learning_rate": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23
+        },
+        "values": [
+          0.001
+        ],
+        "range": {
+          "min": 1.0E-4,
+          "max": 0.1,
+          "nbValues": 3,
+          "scaling": "LOGARITHMIC"
+        }
+      },
+      "n_rnn_layers": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          1
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "n_head": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          4
+        ],
+        "range": {
+          "min": 10,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "batch_size": 32,
+      "max_steps": 1000,
+      "patience": -1,
+      "random_state": 1337,
+      "max_hidden_size": 1024,
+      "limit_hidden_size": false,
+      "enabled": false
+    },
+    "causal_forest": {
+      "n_estimators": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          30,
+          100
+        ],
+        "range": {
+          "min": 10,
+          "max": 100,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "criterion": {
+        "values": {
+          "het": {
+            "enabled": false
+          },
+          "mse": {
+            "enabled": true
+          }
+        }
+      },
+      "max_depth": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          3
+        ],
+        "range": {
+          "min": 3,
+          "max": 8,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "min_samples_leaf": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          5
+        ],
+        "range": {
+          "min": 2,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "selection_mode": "auto",
+      "max_features": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1
+        },
+        "values": [
+          10
+        ],
+        "range": {
+          "min": 5,
+          "max": 20,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "max_feature_prop": {
+        "gridMode": "EXPLICIT",
+        "randomMode": "RANGE",
+        "limit": {
+          "min": 1.0E-23,
+          "max": 1.0
+        },
+        "values": [
+          0.3
+        ],
+        "range": {
+          "min": 0.1,
+          "max": 0.7,
+          "nbValues": 3,
+          "scaling": "LINEAR"
+        }
+      },
+      "honest": true,
+      "n_jobs": 4,
+      "enabled": false
+    },
+    "propensityModeling": {
+      "enabled": true,
+      "calibrateProbabilities": false,
+      "calibrationDataRatio": 0.1
+    },
+    "grid_search": false,
+    "gridSearchParams": {
+      "mode": "TIME_SERIES_KFOLD",
+      "splitRatio": 0.8,
+      "shuffleIterations": 1,
+      "nFolds": 3,
+      "cvSeed": 1337,
+      "stratified": true,
+      "grouped": false,
+      "strategy": "GRID",
+      "bayesianOptimizer": "SCIKIT_OPTIMIZE",
+      "randomized": true,
+      "seed": 1337,
+      "nIter": 0,
+      "nIterRandom": 3,
+      "timeout": 0,
+      "nJobs": 1,
+      "distributed": false,
+      "nContainers": 4,
+      "foldOffset": true,
+      "equalDurationFolds": false
+    },
+    "metrics": {
+      "customMetrics": [],
+      "evaluationMetric": "MASE",
+      "classAveragingMethod": "MACRO",
+      "costMatrixWeights": {
+        "tpGain": 1.0,
+        "tnGain": 0.0,
+        "fpGain": -0.3,
+        "fnGain": 0.0
+      },
+      "liftPoint": 0.4,
+      "netUpliftPoint": 0.5,
+      "causalWeighting": "NO_WEIGHTING"
+    },
+    "custom_mllib": [],
+    "max_ensemble_nodes_serialized": 6000
+  },
   "targetVariable": "rate",
+  "splitParams": {
+    "ttPolicy": "SPLIT_SINGLE_DATASET",
+    "ssdSplitMode": "RANDOM",
+    "splitBeforePrepare": true,
+    "ssdSelection": {
+      "useMemTable": false,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "partitionSelectionMethod": "ALL",
+      "latestPartitionsN": 1,
+      "ordering": {
+        "enabled": false,
+        "rules": []
+      },
+      "samplingMethod": "COLUMN_ORDERED",
+      "maxRecords": 100000,
+      "targetRatio": 0.02,
+      "column": "date",
+      "ascending": false,
+      "withinFirstN": -1,
+      "maxReadUncompressedBytes": -1,
+      "seed": 1337
+    },
+    "ssdTrainingRatio": 0.8,
+    "ssdStratified": false,
+    "ssdGrouped": false,
+    "ssdSeed": 1337,
+    "ssdColumn": "date",
+    "testOnLargerValues": true,
+    "streamAll": true,
+    "kfold": false,
+    "nFolds": 5,
+    "instanceIdRefresher": 0,
+    "subSamplingSeed": 1337
+  },
   "id": "qRAcZFxg",
   "initiator": "azoughlisaid.fst@gmail.com",
   "diagnosticsSettings": {
