@@ -103,7 +103,7 @@
         "maxReadUncompressedBytes": -1
       },
       "autoRefreshSample": false,
-      "_refreshTrigger": 0
+      "_refreshTrigger": 1790673803983
     },
     "vizSampling": {
       "selection": {
@@ -145,6 +145,7 @@
           "currentMode": "ALPHANUM",
           "sort": "count",
           "selectedValues": {
+            "regular": true,
             "anomalies": true
           }
         },
@@ -162,6 +163,39 @@
           "column": "cluster_labels",
           "params": {
             "type": "Text",
+            "ok": true,
+            "nok": true,
+            "empty": true
+          }
+        }
+      },
+      {
+        "column": "variation_pct",
+        "type": "columnFilter",
+        "currentMode": "FACET",
+        "active": true,
+        "facet": {
+          "type": "facet",
+          "column": "variation_pct",
+          "columnType": "NUMERICAL",
+          "currentMode": "NUMERICAL",
+          "sort": "count",
+          "selectedValues": {}
+        },
+        "alphanumFilter": {
+          "type": "alphanum",
+          "column": "variation_pct",
+          "selectedValues": [],
+          "params": {
+            "mode": "full_string",
+            "normalization": "exact"
+          }
+        },
+        "validityFilter": {
+          "type": "validity",
+          "column": "variation_pct",
+          "params": {
+            "type": "DoubleMeaning",
             "ok": true,
             "nok": true,
             "empty": true
@@ -449,6 +483,7 @@
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
