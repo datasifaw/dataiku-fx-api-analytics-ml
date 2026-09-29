@@ -207,8 +207,12 @@
             "sortAscending": false,
             "isA": "ua",
             "multiplier": "Auto",
+            "digitGrouping": "DEFAULT",
             "useParenthesesForNegativeValues": false,
-            "shouldFormatInPercentage": false
+            "shouldFormatInPercentage": false,
+            "hideTrailingZeros": true,
+            "prefix": "",
+            "suffix": ""
           }
         ],
         "uaYDimension": [
@@ -223,7 +227,9 @@
             "digitGrouping": "DEFAULT",
             "useParenthesesForNegativeValues": false,
             "shouldFormatInPercentage": false,
-            "hideTrailingZeros": true
+            "hideTrailingZeros": true,
+            "prefix": "",
+            "suffix": ""
           }
         ],
         "uaDimensionPair": [],
@@ -234,8 +240,12 @@
             "isA": "ua",
             "adminLevel": 0,
             "multiplier": "Auto",
+            "hideTrailingZeros": true,
+            "digitGrouping": "DEFAULT",
             "useParenthesesForNegativeValues": false,
             "shouldFormatInPercentage": false,
+            "prefix": "",
+            "suffix": "",
             "column": "paire_devise",
             "type": "ALPHANUM"
           }
@@ -495,6 +505,7 @@
           "defaultRadius": 8.0,
           "singleShape": "EMPTY_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
