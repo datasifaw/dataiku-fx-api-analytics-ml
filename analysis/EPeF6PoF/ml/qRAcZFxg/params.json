@@ -1,0 +1,232 @@
+{
+  "taskType": "PREDICTION",
+  "predictionType": "TIMESERIES_FORECAST",
+  "timeVariable": "date",
+  "timestepParams": {
+    "numberOfTimeunits": 7,
+    "timeunit": "DAY",
+    "endOfWeekDay": 1,
+    "unitAlignment": 0,
+    "monthlyAlignment": 31
+  },
+  "predictionLength": 0,
+  "timeseriesIdentifiers": [],
+  "quantilesToForecast": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "customTrainTestSplit": false,
+  "customTrainTestIntervals": [],
+  "evaluationParams": {
+    "gapSize": 0,
+    "testSize": 10
+  },
+  "skipTooShortTimeseriesForTraining": false,
+  "guessPolicy": "TIMESERIES_STATISTICAL",
+  "partitionedModel": {
+    "enabled": false,
+    "ssdSelection": {
+      "useMemTable": false,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "partitionSelectionMethod": "ALL",
+      "latestPartitionsN": 1,
+      "ordering": {
+        "enabled": false,
+        "rules": []
+      },
+      "samplingMethod": "FULL",
+      "maxRecords": -1,
+      "targetRatio": 0.02,
+      "ascending": true,
+      "withinFirstN": -1,
+      "maxReadUncompressedBytes": -1
+    }
+  },
+  "targetVariable": "rate",
+  "id": "qRAcZFxg",
+  "initiator": "azoughlisaid.fst@gmail.com",
+  "diagnosticsSettings": {
+    "enabled": true,
+    "settings": [
+      {
+        "type": "ML_DIAGNOSTICS_DATASET_SANITY_CHECKS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_MODELING_PARAMETERS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_RUNTIME",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_REPRODUCIBILITY",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_TRAINING_OVERFIT",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_LEAKAGE_DETECTION",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_MODEL_CHECK",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_ML_ASSERTIONS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_ABNORMAL_PREDICTIONS_DETECTION",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_SCORING_DATASET_SANITY_CHECKS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_EVALUATION_DATASET_SANITY_CHECKS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_TIMESERIES_RESAMPLING_CHECKS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_CAUSAL_TREATMENT_CHECKS",
+        "enabled": true
+      },
+      {
+        "type": "ML_DIAGNOSTICS_CAUSAL_PROPENSITY_CHECKS",
+        "enabled": true
+      },
+      {
+        "type": "LLM_EVALUATION_COMPUTATION_ERROR",
+        "enabled": true
+      }
+    ]
+  },
+  "name": "Forecast rate",
+  "backendType": "PY_MEMORY",
+  "maxConcurrentModelTraining": 2,
+  "gpuConfig": {
+    "params": {
+      "useGpu": false,
+      "gpuList": [
+        0
+      ],
+      "perGPUMemoryFraction": 0.5,
+      "gpuAllowGrowth": false
+    },
+    "disabledCapabilities": []
+  },
+  "envSelection": {
+    "envMode": "USE_BUILTIN_MODE"
+  },
+  "containerSelection": {
+    "containerMode": "INHERIT"
+  },
+  "sparkParams": {
+    "sparkConf": {
+      "inheritConf": "default",
+      "conf": []
+    },
+    "sparkUseGlobalMetastore": false,
+    "sparkPreparedDFStorageLevel": "MEMORY_AND_DISK",
+    "sparkRepartitionNonHDFS": 1,
+    "pipelineAllowStart": true,
+    "pipelineAllowMerge": true,
+    "sparkExecutionEngine": "SPARK_SUBMIT"
+  },
+  "sparkCheckpoint": "NONE",
+  "predictionDisplayScript": {
+    "steps": [],
+    "maxProcessedMemTableBytes": -1,
+    "columnsSelection": {
+      "mode": "ALL"
+    },
+    "columnOrder": [],
+    "columnWidthsByName": {},
+    "columnUseScientificNotationByName": {},
+    "coloring": {
+      "scheme": "MEANING_AND_STATUS",
+      "individualColumns": [],
+      "individualColumnsRules": [],
+      "valueColoringMode": "HASH",
+      "coloringGroups": []
+    },
+    "sorting": [],
+    "analysisColumnData": {},
+    "explorationSampling": {
+      "selection": {
+        "maxRecordsForDisplay": -1,
+        "maxStoredBytes": -1,
+        "timeout": -1,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "HEAD_SEQUENTIAL",
+        "maxRecords": 10000,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "vizSampling": {
+      "selection": {
+        "useMemTable": false,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "FULL",
+        "maxRecords": -1,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "exploreUIParams": {},
+    "globalSearchQuery": "",
+    "explorationFilters": [],
+    "previewMode": "ALL_ROWS"
+  },
+  "predictionDisplayCharts": [],
+  "customMeasures": [],
+  "reusableDimensions": [],
+  "hierarchies": [],
+  "labels": []
+}
