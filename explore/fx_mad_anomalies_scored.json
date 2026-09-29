@@ -144,7 +144,9 @@
           "columnType": "ALPHANUM",
           "currentMode": "ALPHANUM",
           "sort": "count",
-          "selectedValues": {}
+          "selectedValues": {
+            "anomalies": true
+          }
         },
         "alphanumFilter": {
           "type": "alphanum",
