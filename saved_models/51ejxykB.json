@@ -6,7 +6,7 @@
   "cleanTemporaryVersionsPostJob": false,
   "name": "modele_detection_anomalies_fx",
   "contentType": "clustering/py_memory",
-  "activeVersion": "initial",
+  "activeVersion": "1790867724499",
   "inlineVersions": [],
   "conditionalOutputs": [],
   "partitioning": {
