@@ -72,7 +72,7 @@
   "params": {
     "sources": [
       {
-        "url": "https://api.frankfurter.dev/v2/rates.csv?base\u003deur\u0026quotes\u003dmad\u0026from\u003d2020-01-01\u0026to\u003d2026-09-22"
+        "url": "https://api.frankfurter.dev/v2/rates.csv?base\u003deur\u0026quotes\u003dmad\u0026from\u003d2020-01-01"
       }
     ],
     "consider404AsEmpty": true,
