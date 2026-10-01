@@ -107,14 +107,7 @@
           "selectedValues": {},
           "timezone": "UTC",
           "dateFilterType": "RELATIVE",
-          "dateFilterPart": "DAY_OF_MONTH",
-          "dateFilterRelativeOption": {
-            "last": 0,
-            "next": 0,
-            "containsCurrentDatePart": true,
-            "isUntilNow": false
-          },
-          "dateFilterRelativePreset": "TODAY"
+          "dateFilterPart": "YEAR"
         },
         "alphanumFilter": {
           "type": "alphanum",
