@@ -1,0 +1,30 @@
+{
+  "type": "step_based",
+  "name": "scenario_pipeline_fx",
+  "active": false,
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "azoughlisaid.fst@gmail.com"
+    },
+    "lastModifiedOn": 1790866744610
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [],
+  "reporters": [],
+  "params": {
+    "steps": []
+  },
+  "automationLocal": false,
+  "customFields": {},
+  "markedAsTest": false,
+  "__dku_object_version__": 1
+}
