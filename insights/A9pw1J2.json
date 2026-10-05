@@ -29,7 +29,7 @@
       "id": "105325c3",
       "type": "kpi",
       "variant": "normal",
-      "name": "Copy of Taux actuel USD/MAD",
+      "name": "Taux actuel USD/MAD",
       "userEditedName": true,
       "displayWithEChartsByDefault": true,
       "genericDimension0": [],
@@ -770,7 +770,7 @@
   },
   "owner": "azoughlisaid.fst@gmail.com",
   "listed": false,
-  "name": "Copy of Taux actuel USD/MAD on fx_taux_actuels",
+  "name": "Taux actuel USD/MAD on fx_taux_actuels",
   "dashboardCreationId": "yIE1Vrr",
   "creationTag": {
     "versionNumber": 0,
