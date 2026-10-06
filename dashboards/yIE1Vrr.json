@@ -42,7 +42,7 @@
             "titleOptions": {
               "showTitle": "YES",
               "fontColor": "#000000",
-              "fontSize": 13
+              "fontSize": 16
             },
             "grid": {
               "tiles": []
@@ -93,7 +93,7 @@
             "titleOptions": {
               "showTitle": "YES",
               "fontColor": "#000000",
-              "fontSize": 13
+              "fontSize": 15
             },
             "grid": {
               "tiles": []
@@ -144,7 +144,7 @@
             "titleOptions": {
               "showTitle": "YES",
               "fontColor": "#000000",
-              "fontSize": 13
+              "fontSize": 16
             },
             "grid": {
               "tiles": []
@@ -195,7 +195,7 @@
             "titleOptions": {
               "showTitle": "YES",
               "fontColor": "#000000",
-              "fontSize": 13
+              "fontSize": 16
             },
             "grid": {
               "tiles": []
@@ -246,7 +246,7 @@
             "titleOptions": {
               "showTitle": "YES",
               "fontColor": "#000000",
-              "fontSize": 13
+              "fontSize": 16
             },
             "grid": {
               "tiles": []
@@ -274,7 +274,7 @@
               "showXAxisTitle": true,
               "showYAxis": true,
               "showYAxisTitle": true,
-              "showLegend": false,
+              "showLegend": true,
               "showBrush": false,
               "showBreadcrumb": true,
               "inheritLegendPlacement": true,
@@ -297,7 +297,7 @@
             "titleOptions": {
               "showTitle": "YES",
               "fontColor": "#000000",
-              "fontSize": 13
+              "fontSize": 17
             },
             "grid": {
               "tiles": []
