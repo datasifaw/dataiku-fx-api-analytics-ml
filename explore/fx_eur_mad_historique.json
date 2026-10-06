@@ -197,6 +197,7 @@
         "tooltipMeasures": [],
         "boxplotBreakdownDim": [],
         "boxplotValue": [],
+        "filters": [],
         "xAxisFormatting": {
           "displayAxis": true,
           "displayLineAndTicks": true,
@@ -406,6 +407,7 @@
           },
           "customColors": {}
         },
+        "colorGroups": [],
         "bubblesOptions": {
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
@@ -661,7 +663,9 @@
           },
           "horizontal": {
             "show": false,
-            "displayAxis": {},
+            "displayAxis": {
+              "type": "LEFT_Y_AXIS"
+            },
             "lineFormatting": {
               "type": "FILLED",
               "color": "#d9d9d9",
