@@ -30,7 +30,7 @@
           "WEEK",
           "YEAR"
         ],
-        "role": "INPUT",
+        "role": "REJECT",
         "type": "NUMERIC",
         "state": {
           "userModified": false,
@@ -65,7 +65,7 @@
         "frequency_default_mode": "EXPLICIT",
         "frequency_default_value": 0.0,
         "frequency_normalized": true,
-        "role": "INPUT",
+        "role": "REJECT",
         "type": "CATEGORY",
         "state": {
           "userModified": false,
@@ -89,7 +89,7 @@
         "binarize_threshold_mode": "MEDIAN",
         "binarize_constant_threshold": 0.0,
         "datetime_cyclical_periods": [],
-        "role": "INPUT",
+        "role": "REJECT",
         "type": "NUMERIC",
         "state": {
           "userModified": false,
@@ -173,7 +173,7 @@
         "binarize_threshold_mode": "MEDIAN",
         "binarize_constant_threshold": 0.0,
         "datetime_cyclical_periods": [],
-        "role": "INPUT",
+        "role": "REJECT",
         "type": "NUMERIC",
         "state": {
           "userModified": false,
@@ -197,7 +197,7 @@
         "binarize_threshold_mode": "MEDIAN",
         "binarize_constant_threshold": 0.0,
         "datetime_cyclical_periods": [],
-        "role": "INPUT",
+        "role": "REJECT",
         "type": "NUMERIC",
         "state": {
           "userModified": false,
@@ -280,7 +280,7 @@
         "frequency_default_mode": "EXPLICIT",
         "frequency_default_value": 0.0,
         "frequency_normalized": true,
-        "role": "INPUT",
+        "role": "REJECT",
         "type": "CATEGORY",
         "state": {
           "userModified": false,
@@ -504,7 +504,17 @@
     "metrics": {
       "evaluationMetric": "SILHOUETTE"
     },
-    "custom_python": [],
+    "custom_python": [
+      {
+        "enabled": false,
+        "code": "# This sample code uses a standard scikit-learn algorithm, the Birch clustering.\n\n# Your code must create a \u0027clf\u0027 variable. This clf must be a scikit-learn compatible\n# model, ie, it should:\n#  1. have at least fit(X), fit_predict(X) and predict(X) methods\n#  2. inherit sklearn.base.BaseEstimator\n#  3. handle the attributes in the __init__ function\n#     See: https://doc.dataiku.com/dss/latest/machine-learning/custom-models.html\n\nfrom sklearn.cluster import Birch\n\nclf \u003d Birch(n_clusters\u003d5)\n",
+        "name": "Custom Python model",
+        "custom_has_k": false,
+        "k": [
+          5
+        ]
+      }
+    ],
     "custom_mllib": []
   },
   "sampling": {
