@@ -1,4 +1,22 @@
 {
+  "uiData": {
+    "mode": "\u0026\u0026",
+    "$latestOperator": "\u0026\u0026",
+    "$filterOptions": "rules",
+    "conditions": [
+      {
+        "date": "2026-10-07",
+        "input": "cluster_labels",
+        "col": "base",
+        "string": "anomalies",
+        "$showList": false,
+        "time": "00:00",
+        "items": [],
+        "operator": "contains"
+      }
+    ]
+  },
+  "$status": {},
   "distinct": false,
-  "enabled": false
+  "enabled": true
 }
