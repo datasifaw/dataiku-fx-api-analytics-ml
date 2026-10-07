@@ -38,7 +38,12 @@
       "valueColoringMode": "HASH",
       "coloringGroups": []
     },
-    "sorting": [],
+    "sorting": [
+      {
+        "column": "date",
+        "ascending": false
+      }
+    ],
     "analysisColumnData": {},
     "explorationSampling": {
       "selection": {
@@ -92,44 +97,7 @@
       "autoRefresh": true
     },
     "globalSearchQuery": "",
-    "explorationFilters": [
-      {
-        "column": "date",
-        "type": "columnFilter",
-        "currentMode": "FACET",
-        "active": true,
-        "facet": {
-          "type": "facet",
-          "column": "date",
-          "columnType": "DATE",
-          "currentMode": "DATE",
-          "sort": "count",
-          "selectedValues": {},
-          "timezone": "UTC",
-          "dateFilterType": "RELATIVE",
-          "dateFilterPart": "YEAR"
-        },
-        "alphanumFilter": {
-          "type": "alphanum",
-          "column": "date",
-          "selectedValues": [],
-          "params": {
-            "mode": "full_string",
-            "normalization": "exact"
-          }
-        },
-        "validityFilter": {
-          "type": "validity",
-          "column": "date",
-          "params": {
-            "type": "DateOnly",
-            "ok": true,
-            "nok": true,
-            "empty": true
-          }
-        }
-      }
-    ],
+    "explorationFilters": [],
     "previewMode": "ALL_ROWS"
   },
   "charts": [
