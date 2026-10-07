@@ -1,0 +1,462 @@
+{
+  "needsInputDataFolder": false,
+  "savedModelType": "DSS_MANAGED",
+  "publishPolicy": "UNCONDITIONAL",
+  "rebuildBehavior": "EXPLICIT",
+  "cleanTemporaryVersionsPostJob": false,
+  "name": "modele_detection_anomalies_fx_v2",
+  "contentType": "clustering/py_memory",
+  "activeVersion": "initial",
+  "inlineVersions": [],
+  "conditionalOutputs": [],
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "considerMissingRequestedPartitionsAsEmpty": false,
+    "dimensions": []
+  },
+  "flowOptions": {
+    "virtualizable": false,
+    "rebuildBehavior": "NORMAL",
+    "crossProjectBuildBehavior": "DEFAULT",
+    "ignoreErrorStatusOnBuild": false
+  },
+  "lastExportedFrom": "A-PROJET_FX_ANALYTICS-iyKMFxyH-XAHwpeYy-s1-pp1-m1",
+  "metrics": {
+    "probes": [],
+    "engineConfig": {
+      "padRunsWithMetrics": false,
+      "hive": {
+        "active": true,
+        "extraConf": []
+      },
+      "basic": {},
+      "dss": {
+        "active": true,
+        "selection": {
+          "useMemTable": false,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "FULL",
+          "maxRecords": -1,
+          "targetRatio": 0.02,
+          "ascending": true,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        }
+      },
+      "sql": {
+        "active": true
+      },
+      "impala": {
+        "active": true
+      },
+      "spark": {
+        "active": true,
+        "extraConf": []
+      },
+      "python": {}
+    },
+    "displayedState": {
+      "partition": "NP",
+      "columns": [],
+      "metrics": [
+        "reporting:BUILD_DURATION"
+      ]
+    }
+  },
+  "metricsChecks": {
+    "runOnBuild": false,
+    "checks": [],
+    "displayedState": {
+      "partition": "NP",
+      "checks": []
+    }
+  },
+  "miniTask": {
+    "taskType": "CLUSTERING",
+    "guessPolicy": "ANOMALY_DETECTION",
+    "modeling": {
+      "db_scan_clustering": {
+        "epsilon": [],
+        "min_sample_ratio": 0.0,
+        "enabled": false
+      },
+      "hdb_scan_clustering": {
+        "min_cluster_size_ratio": [
+          0.01,
+          0.03,
+          0.1,
+          0.3
+        ],
+        "enabled": false
+      },
+      "spectral_clustering": {
+        "enabled": false,
+        "affinity_rbf": false,
+        "affinity_nearest_neighbors": false,
+        "affinity_sigmoid": false,
+        "affinity_polynomial": true,
+        "gamma": [
+          0.0
+        ],
+        "coef0": 0.0,
+        "seed": 1337,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "ward_clustering": {
+        "enabled": false,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "kmeans_clustering": {
+        "enabled": false,
+        "seed": 1337,
+        "n_jobs": 2,
+        "allow_sparse_matrices": true,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "mini_batch_kmeans_clustering": {
+        "enabled": false,
+        "seed": 1337,
+        "allow_sparse_matrices": true,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "gmm_clustering": {
+        "enabled": false,
+        "max_iterations": 0,
+        "seed": 1337,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "mllib_kmeans_clustering": {
+        "enabled": false,
+        "seed": 1337,
+        "max_iterations": 0,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "mllib_gaussian_mixture_clustering": {
+        "seed": 1337,
+        "enabled": false,
+        "max_iterations": 0,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "h2o_kmeans": {
+        "enabled": false,
+        "seed": 1337,
+        "max_iterations": 0,
+        "k": [
+          3,
+          5,
+          7
+        ],
+        "useClusterRange": false,
+        "range": {
+          "min": 3,
+          "max": 7,
+          "nbValues": 3
+        }
+      },
+      "two_step": {
+        "kmeans_k": 50,
+        "n_clusters": 5,
+        "seed": 1337,
+        "max_iterations": 30,
+        "enabled": false
+      },
+      "isolation_forest": {
+        "k": 2,
+        "enabled": false,
+        "n_estimators": 100,
+        "max_samples": 0.5,
+        "max_features": 1.0,
+        "contamination": 0.05,
+        "use_auto_contamination": false,
+        "bootstrap": true,
+        "max_anomalies": 100,
+        "n_samples": 256,
+        "max_depth": 15,
+        "seed": 1337,
+        "allow_sparse_matrices": true,
+        "n_jobs": 1
+      },
+      "vertica_kmeans_clustering": {
+        "enabled": false,
+        "k": [
+          5
+        ],
+        "epsilon": [
+          1.0E-4
+        ],
+        "max_iterations": 50
+      },
+      "metrics": {
+        "evaluationMetric": "SILHOUETTE"
+      },
+      "custom_python": [],
+      "custom_mllib": []
+    },
+    "diagnosticsSettings": {
+      "enabled": true,
+      "settings": [
+        {
+          "type": "ML_DIAGNOSTICS_DATASET_SANITY_CHECKS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_MODELING_PARAMETERS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_RUNTIME",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_REPRODUCIBILITY",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_TRAINING_OVERFIT",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_LEAKAGE_DETECTION",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_MODEL_CHECK",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_ML_ASSERTIONS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_ABNORMAL_PREDICTIONS_DETECTION",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_SCORING_DATASET_SANITY_CHECKS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_EVALUATION_DATASET_SANITY_CHECKS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_TIMESERIES_RESAMPLING_CHECKS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_CAUSAL_TREATMENT_CHECKS",
+          "enabled": true
+        },
+        {
+          "type": "ML_DIAGNOSTICS_CAUSAL_PROPENSITY_CHECKS",
+          "enabled": true
+        },
+        {
+          "type": "LLM_EVALUATION_COMPUTATION_ERROR",
+          "enabled": true
+        }
+      ]
+    },
+    "backendType": "PY_MEMORY",
+    "maxConcurrentModelTraining": 2,
+    "gpuConfig": {
+      "params": {
+        "useGpu": false,
+        "gpuList": [
+          0
+        ],
+        "perGPUMemoryFraction": 0.5,
+        "gpuAllowGrowth": false
+      },
+      "disabledCapabilities": []
+    },
+    "envSelection": {
+      "envMode": "USE_BUILTIN_MODE"
+    },
+    "containerSelection": {
+      "containerMode": "INHERIT"
+    },
+    "sparkParams": {
+      "sparkConf": {
+        "inheritConf": "default",
+        "conf": []
+      },
+      "sparkUseGlobalMetastore": false,
+      "sparkPreparedDFStorageLevel": "MEMORY_AND_DISK",
+      "sparkRepartitionNonHDFS": 1,
+      "pipelineAllowStart": true,
+      "pipelineAllowMerge": true,
+      "sparkExecutionEngine": "SPARK_SUBMIT"
+    },
+    "sparkCheckpoint": "NONE",
+    "predictionDisplayScript": {
+      "steps": [],
+      "maxProcessedMemTableBytes": -1,
+      "columnsSelection": {
+        "mode": "ALL"
+      },
+      "columnOrder": [],
+      "columnWidthsByName": {},
+      "columnUseScientificNotationByName": {},
+      "coloring": {
+        "scheme": "MEANING_AND_STATUS",
+        "individualColumns": [],
+        "individualColumnsRules": [],
+        "valueColoringMode": "HASH",
+        "coloringGroups": []
+      },
+      "sorting": [],
+      "analysisColumnData": {},
+      "explorationSampling": {
+        "selection": {
+          "maxRecordsForDisplay": -1,
+          "maxStoredBytes": -1,
+          "timeout": -1,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "HEAD_SEQUENTIAL",
+          "maxRecords": 10000,
+          "targetRatio": 0.02,
+          "ascending": true,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        },
+        "autoRefreshSample": false,
+        "_refreshTrigger": 0
+      },
+      "vizSampling": {
+        "selection": {
+          "useMemTable": false,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "FULL",
+          "maxRecords": -1,
+          "targetRatio": 0.02,
+          "ascending": true,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        },
+        "autoRefreshSample": false,
+        "_refreshTrigger": 0
+      },
+      "exploreUIParams": {},
+      "globalSearchQuery": "",
+      "explorationFilters": [],
+      "previewMode": "ALL_ROWS"
+    },
+    "predictionDisplayCharts": [],
+    "customMeasures": [],
+    "reusableDimensions": [],
+    "hierarchies": [],
+    "labels": []
+  },
+  "lastTrainIndex": 1,
+  "lastTrainJobId": "",
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "azoughlisaid.fst@gmail.com"
+    },
+    "lastModifiedOn": 1791371695618
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
