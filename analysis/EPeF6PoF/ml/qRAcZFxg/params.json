@@ -4762,7 +4762,9 @@
             "values": [],
             "fixedValues": false
           },
-          "customColors": {}
+          "customColors": {
+            "m_rate_AVG_1": "#1f77b4"
+          }
         },
         "colorGroups": [],
         "bubblesOptions": {
