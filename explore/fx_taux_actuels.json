@@ -818,20 +818,53 @@
       "engineType": "LINO",
       "def": {
         "id": "105325c3",
-        "type": "kpi",
+        "type": "lines",
         "variant": "normal",
         "name": "Copy of Taux actuel USD/MAD",
         "userEditedName": true,
         "displayWithEChartsByDefault": true,
-        "genericDimension0": [],
+        "genericDimension0": [
+          {
+            "numParams": {
+              "mode": "FIXED_NB",
+              "emptyBinsMode": "ZEROS",
+              "binSize": 1.0,
+              "niceBounds": false,
+              "customBinValues": [],
+              "nbBins": 10
+            },
+            "maxValues": 20,
+            "generateOthersCategory": true,
+            "forceLastPositionOthers": false,
+            "oneTickPerBin": "AUTO",
+            "filters": [],
+            "isA": "dimension",
+            "sort": {
+              "type": "AGGREGATION",
+              "sortId": "date COUNT 50 NORMAL0 desc",
+              "measureIdx": 0,
+              "label": "Décompte de date, décroissant"
+            },
+            "prefix": "",
+            "suffix": "",
+            "multiplier": "Auto",
+            "hideTrailingZeros": true,
+            "digitGrouping": "DEFAULT",
+            "useParenthesesForNegativeValues": false,
+            "shouldFormatInPercentage": false,
+            "useLastValueAsTotal": false,
+            "column": "paire_devise",
+            "type": "ALPHANUM"
+          }
+        ],
         "genericDimension1": [],
         "facetDimension": [],
         "animationDimension": [],
         "genericMeasures": [
           {
-            "column": "rate",
-            "function": "AVG",
-            "type": "NUMERICAL",
+            "column": "date",
+            "function": "COUNT",
+            "type": "DATE",
             "displayed": true,
             "isA": "measure",
             "displayAxis": "axis1",
@@ -848,7 +881,7 @@
             "prefix": "",
             "suffix": "",
             "showValue": true,
-            "showDisplayLabel": false,
+            "showDisplayLabel": true,
             "labelPosition": "BOTTOM",
             "percentile": 50.0,
             "isCustomPercentile": false,
@@ -865,7 +898,8 @@
             "labelTextFormatting": {
               "fontSize": 15,
               "fontColor": "#333333",
-              "hasBackground": false
+              "hasBackground": false,
+              "fontFamily": "SourceSansPro"
             },
             "valuesInChartDisplayOptions": {
               "displayValues": true,
@@ -1161,7 +1195,9 @@
             "values": [],
             "fixedValues": false
           },
-          "customColors": {}
+          "customColors": {
+            "m_date_COUNT_1": "#ff7f0e"
+          }
         },
         "colorGroups": [],
         "bubblesOptions": {
@@ -1332,6 +1368,7 @@
           },
           "displayPointer": false
         },
+        "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAABmElEQVR4AezTQYoEIRREwWbuf+gBN8Kgg0WvfBW9ELFsMDP4Px+/dAOA07yfD2DA8Qbi8Uww4HgD8XgmGHC8gXi8t05wnHXGAzy7SO4AJ1lnKMCzi+QOcJJ1hgI8u0juACdZZyjAs4vkDnCSdYb6Azw/2DUaANxw3KYAvK2m8QFww3GbAvC2msYHwA3HbQrA22oaHwA3HLcpAI9qugvgru1IBnjU0F0Ad21HMsCjhu4CuGs7kgEeNXQXwF3bkQzwqKG7/A/czf2aZIDj1IABxxuIxzPBgOMNxOOZYMDxBuLxTPAKOHQGOIS5igJ41UroDHAIcxUF8KqV0BngEOYqCuBVK6EzwCHMVRTAq1ZCZ4+AQ7lfEwVwnBow4HgD8XgmGHC8gXg8Eww43kA8ngk+AL75CuCb9Q7eDvigpJuvAL5Z7+DtgA9KuvkK4Jv1Dt4O+KCkm68Avlnv4O2AD0q6+co3wDfnfs3bAcepAQOONxCPZ4IBxxuIxzPBgOMNxOOZ4OfAV/0D8FVczx8L+HlnV/0D8FVczx/7CwAA//9QPGQEAAAABklEQVQDAChwAKEmxBeRAAAAAElFTkSuQmCC",
         "useLiveProcessingIfAvailable": true,
         "legendPlacement": "OUTER_RIGHT",
         "legendFormatting": {
