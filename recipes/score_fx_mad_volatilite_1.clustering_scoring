@@ -1,0 +1,21 @@
+{
+  "pythonBatchSize": 100000,
+  "keptInputColumns": [],
+  "outputModelMetadata": false,
+  "backendType": "PY_MEMORY",
+  "filterInputColumns": false,
+  "removeOutliers": false,
+  "forceOriginalEngine": false,
+  "sparkParams": {
+    "pipelineAllowMerge": true,
+    "sparkPreparedDFStorageLevel": "MEMORY_AND_DISK",
+    "pipelineAllowStart": true,
+    "sparkExecutionEngine": "SPARK_SUBMIT",
+    "sparkConf": {
+      "inheritConf": "default",
+      "conf": []
+    },
+    "sparkRepartitionNonHDFS": 1,
+    "sparkUseGlobalMetastore": false
+  }
+}
