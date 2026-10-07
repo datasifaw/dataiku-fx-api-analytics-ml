@@ -4406,14 +4406,105 @@
         "id": "94f827c2",
         "type": "grouped_columns",
         "variant": "normal",
-        "name": "Nouveau graphique",
+        "name": "Moy. de rate by date",
         "userEditedName": false,
         "displayWithEChartsByDefault": true,
-        "genericDimension0": [],
+        "genericDimension0": [
+          {
+            "numParams": {
+              "mode": "FIXED_NB",
+              "emptyBinsMode": "AVERAGE",
+              "binSize": 1.0,
+              "niceBounds": false,
+              "customBinValues": [],
+              "nbBins": 10
+            },
+            "dateParams": {
+              "mode": "AUTOMATIC",
+              "maxBinNumberForAutomaticMode": 0
+            },
+            "maxValues": 0,
+            "generateOthersCategory": true,
+            "forceLastPositionOthers": false,
+            "oneTickPerBin": "AUTO",
+            "filters": [],
+            "isA": "dimension",
+            "sort": {
+              "type": "NATURAL",
+              "sortId": "NATURAL",
+              "label": "Ordonnancement naturel",
+              "sortAscending": true
+            },
+            "multiplier": "Auto",
+            "hideTrailingZeros": true,
+            "digitGrouping": "DEFAULT",
+            "useParenthesesForNegativeValues": false,
+            "shouldFormatInPercentage": false,
+            "useLastValueAsTotal": false,
+            "column": "date",
+            "type": "DATE"
+          }
+        ],
         "genericDimension1": [],
         "facetDimension": [],
         "animationDimension": [],
-        "genericMeasures": [],
+        "genericMeasures": [
+          {
+            "column": "rate",
+            "function": "AVG",
+            "type": "NUMERICAL",
+            "displayed": true,
+            "isA": "measure",
+            "displayAxis": "axis1",
+            "displayType": "column",
+            "isUnaggregated": false,
+            "uaComputeMode": "STACK",
+            "computeMode": "NORMAL",
+            "computeModeDim": 0,
+            "multiplier": "Auto",
+            "digitGrouping": "DEFAULT",
+            "useParenthesesForNegativeValues": false,
+            "shouldFormatInPercentage": false,
+            "hideTrailingZeros": true,
+            "prefix": "",
+            "suffix": "",
+            "showValue": true,
+            "showDisplayLabel": true,
+            "labelPosition": "BOTTOM",
+            "percentile": 50.0,
+            "isCustomPercentile": false,
+            "kpiTextAlign": "CENTER",
+            "kpiValueFontSizeMode": "RESPONSIVE",
+            "kpiValueFontSize": 32,
+            "responsiveTextAreaFill": 100,
+            "valueTextFormatting": {
+              "fontSize": 11,
+              "fontColor": "#333333",
+              "hasBackground": false,
+              "fontFamily": "SourceSansPro"
+            },
+            "labelTextFormatting": {
+              "fontSize": 15,
+              "fontColor": "#333333",
+              "hasBackground": false,
+              "fontFamily": "SourceSansPro"
+            },
+            "valuesInChartDisplayOptions": {
+              "displayValues": true,
+              "textFormatting": {
+                "fontSize": 11,
+                "fontColor": "AUTO",
+                "hasBackground": false,
+                "backgroundColor": "#D9D9D9BF"
+              },
+              "addDetails": false,
+              "additionalMeasures": [],
+              "placementMode": "AUTO",
+              "spacing": 2
+            },
+            "colorRules": []
+          }
+        ],
         "genericHierarchyDimension": [],
         "yHierarchyDimension": [],
         "xHierarchyDimension": [],
