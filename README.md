@@ -1,3 +1,3 @@
 
-dataiku-fx-api-analytics-ml
+dataiku-fx-api-analytics-machine Learning 
 devise
